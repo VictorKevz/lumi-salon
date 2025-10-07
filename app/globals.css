@@ -1,6 +1,38 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --neutral-0: #ffffff; /* pure white */
+  --neutral-1: #f9f9f9;
+  --neutral-2: #f2f2f2;
+  --neutral-3: #e6e6e6;
+  --neutral-4: #d9d9d9;
+  --neutral-5: #cccccc;
+
+  --primary-0: #fdf7f5;
+  --primary-1: #f9e9e4;
+  --primary-2: #f4d6ca;
+  --primary-3: #edc1b0;
+  --primary-4: #e3a791; /* mid-tone primary */
+  --primary-5: #d78f78;
+  --primary-6: #c97660; /* strongest / used for CTA buttons or highlights */
+
+  /* --- text colors --- */
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --text-muted: #777777;
+
+  /* Accent colors */
+  --info: #3b82f6;
+  --success: #f3fcf6;
+  --success-0: #22c55e;
+  --warning-0: #fffaf0;
+  --warning: #eab308;
+  --danger-0: #fef2f2;
+  --danger: #ef4444;
+  --accent-0: #fdf6ff;
+  --accent: #a855f7;
+
+  /* --- Optional borders / shadows --- */
+  --border-light: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.05);
 }
