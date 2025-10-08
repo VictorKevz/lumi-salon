@@ -16,8 +16,7 @@ export default function Home({ params }: Params) {
     params.locale === "fi" ? (fi as Messages) : (en as Messages);
 
   return (
-    <main className="flex items-center justify-center min-h-screen w-full">
-      {/* Single component that handles both SSR and client-side animations */}
+    <main className="min-h-screen w-full">
       <HomeClient messages={messages} />
     </main>
   );

@@ -162,3 +162,30 @@ Include star ratings or icons for visual context.
 ---
 
 ## Suggested File/Component Mapping (Next.js 14)
+app/
+ ├─ [locale]/
+ │   ├─ page.tsx             ← Server component: selects messages
+ │   └─ HomeClient.tsx       ← Client component: orchestrates page sections
+components/
+ ├─ Header/
+ │   ├─ TopBanner.tsx
+ │   ├─ Navbar.tsx
+ ├─ Hero/
+ │   └─ Hero.tsx
+ ├─ Services/
+ │   └─ Services.tsx
+ ├─ Pricing/
+ │   └─ Pricing.tsx
+ ├─ Gallery/
+ │   └─ Gallery.tsx
+ ├─ Testimonials/
+ │   └─ Testimonials.tsx
+ ├─ ContactForm/
+ │   └─ ContactForm.tsx
+ ├─ Footer/
+ │   └─ Footer.tsx
+messages/
+ ├─ fi.json
+ └─ en.json
+styles/
+ └─ globals.css
