@@ -1,3 +1,12 @@
+import {
+  Facebook,
+  Instagram,
+  LinkedIn,
+  LocalPhone,
+  Email,
+  WhatsApp,
+  AccessAlarm,
+} from "@mui/icons-material";
 export type Messages = Record<string, string>;
 
 export type Contact = {
@@ -18,7 +27,6 @@ export function formatPhone(raw?: string) {
 export function getContacts(messages: Messages): Contact[] {
   const phone = formatPhone(messages["phone"]);
   const email = messages["email"] || "info@lumisalo.fi";
-  const whatsappNumber = phone.replace(/[^+\d]/g, "");
 
   return [
     {
@@ -28,12 +36,6 @@ export function getContacts(messages: Messages): Contact[] {
       icon: "LocalPhone",
     },
     { type: "email", label: email, href: `mailto:${email}`, icon: "Email" },
-    // {
-    //   type: "whatsapp",
-    //   label: `WhatsApp: ${phone}`,
-    //   href: `https://wa.me/${whatsappNumber.replace(/^\+/, "")}`,
-    //   icon: "WhatsApp",
-    // },
     {
       type: "hours",
       label: messages["hours"] || "",
@@ -62,3 +64,13 @@ export const socials: Social[] = [
   { id: "ig", label: "Instagram", href: "#", icon: "Instagram" },
   { id: "in", label: "LinkedIn", href: "#", icon: "LinkedIn" },
 ];
+
+export const iconMap: Record<string, any> = {
+  fb: Facebook,
+  ig: Instagram,
+  in: LinkedIn,
+  phone: LocalPhone,
+  email: Email,
+  whatsapp: WhatsApp,
+  hours: AccessAlarm,
+};

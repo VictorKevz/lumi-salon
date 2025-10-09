@@ -15,10 +15,11 @@
   --primary-3: #edc1b0;
   --primary-4: #e3a791;
   --primary-5: #d78f78;
-  --primary-6: #c97660;
+  --primary-6: #8d4330;
 
   /* --- text colors --- */
   --text-primary: #282828;
+  --text-on-primary: var(--neutral-0);
   --text-secondary: #555555;
   --text-muted: #777777;
 
@@ -34,9 +35,9 @@
   --accent: #a855f7;
 
   /* --- Optional borders / shadows --- */
-  --border-light: #e0e0e0;
+  --border-light: #e1cbc4f3;
   --border-dark: #1d1c1c;
-  --overlay: #5b3b3b4f;
+  --overlay: #02020249;
   --shadow-light: rgba(0, 0, 0, 0.05);
 }
 body.preload {
@@ -76,14 +77,17 @@ body.loaded {
   position: absolute;
   left: 0;
   top: 0;
-  width: 0;
+  width: 100%;
   height: 100%;
   content: "";
   background-color: var(--neutral-6);
   z-index: -1;
   border-radius: 0.5rem;
+  transform: scaleX(0.5) scaleY(0.5);
+  opacity: 0;
 }
 .nav-link:hover::before {
-  width: 100%;
-  transition: width 0.3s ease-in;
+  transform: scaleX(1) scaleY(1);
+  opacity: 1;
+  transition: transform 0.3s ease-in;
 }
