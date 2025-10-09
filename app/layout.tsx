@@ -11,7 +11,7 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased preload">{children}</body>
     </html>
   );
 }

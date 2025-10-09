@@ -156,7 +156,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
   const navLinks = getNavLinks(messages);
 
   return (
-    <nav className="w-full between py-3 px-4">
+    <nav className="between w-full h-[5rem] bg-[var(--primary-3)] px-4">
       <div className="flex items-center gap-3">
         <button type="button" className="center md:hidden!">
           🟰
@@ -169,13 +169,15 @@ export const Navbar = ({ messages }: HeaderProps) => {
             <Link href={l.href}>{l.label}</Link>
           </li>
         ))}
+      </ul>{" "}
+      <ul className="center">
         <li>
           <Link
             href={`tel:${(messages["header.banner.phone"] || "").replace(
               /\s/g,
               ""
             )}`}
-            className="underline"
+            className="center h-12 min-w-[10rem] w-full bg-[var(--neutral-6)]"
           >
             {messages["header.cta.call"]}
           </Link>

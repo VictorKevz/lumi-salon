@@ -10,6 +10,8 @@ export default function HomeClient({ messages }: { messages: Messages }) {
 
   useEffect(() => {
     setIsClient(true);
+    document.body.classList.remove("preload");
+    document.body.classList.add("loaded");
   }, []);
 
   return (
