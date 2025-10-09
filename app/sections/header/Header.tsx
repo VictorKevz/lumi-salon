@@ -1,5 +1,5 @@
 "use client";
-import { Close, KeyboardArrowRight, Menu } from "@mui/icons-material";
+import { Menu } from "@mui/icons-material";
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
 import {
@@ -11,6 +11,7 @@ import {
 } from "@/lib/header";
 import { MobileMenu } from "./MobileMenu";
 import { SocialsList } from "@/app/components/SocialsList";
+import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
 
 type HeaderProps = { isClient: boolean; messages: Messages };
 
@@ -47,9 +48,7 @@ export const Header = ({ isClient, messages }: HeaderProps) => {
               </Link>
             </li>
             <li>
-              <span>
-                {messages["nav.locale.fi"]} / {messages["nav.locale.en"]}
-              </span>
+              <LanguageSwitcher messages={messages} />
             </li>
           </ul>
         </nav>

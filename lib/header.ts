@@ -7,6 +7,15 @@ import {
   WhatsApp,
   AccessAlarm,
 } from "@mui/icons-material";
+import { OverridableComponent } from "@mui/types";
+import { SvgIconTypeMap } from "@mui/material";
+
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+type MuiIcon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+  muiName: string;
+};
+/* eslint-enable @typescript-eslint/no-empty-object-type */
+
 export type Messages = Record<string, string>;
 
 export type Contact = {
@@ -65,7 +74,7 @@ export const socials: Social[] = [
   { id: "in", label: "LinkedIn", href: "#", icon: "LinkedIn" },
 ];
 
-export const iconMap: Record<string, any> = {
+export const iconMap: Record<string, MuiIcon> = {
   fb: Facebook,
   ig: Instagram,
   in: LinkedIn,
