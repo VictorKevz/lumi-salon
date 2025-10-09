@@ -13,12 +13,12 @@
   --primary-1: #f9e9e4;
   --primary-2: #f4d6ca;
   --primary-3: #edc1b0;
-  --primary-4: #e3a791; /* mid-tone primary */
+  --primary-4: #e3a791;
   --primary-5: #d78f78;
-  --primary-6: #c97660; /* strongest / used for CTA buttons or highlights */
+  --primary-6: #c97660;
 
   /* --- text colors --- */
-  --text-primary: #333333;
+  --text-primary: #282828;
   --text-secondary: #555555;
   --text-muted: #777777;
 
@@ -35,9 +35,10 @@
 
   /* --- Optional borders / shadows --- */
   --border-light: #e0e0e0;
+  --border-dark: #1d1c1c;
+  --overlay: #5b3b3b4f;
   --shadow-light: rgba(0, 0, 0, 0.05);
 }
-/* Fade-in after hydration */
 body.preload {
   opacity: 0;
   transition: opacity 0.4s ease-in;
@@ -45,7 +46,7 @@ body.preload {
 body.loaded {
   opacity: 1;
 }
-/* Common classes */
+/* .......................Common classes....................... */
 .center,
 .between {
   display: flex;
@@ -68,4 +69,21 @@ body.loaded {
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+/* .......................Header classes....................... */
+
+.nav-link::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  content: "";
+  background-color: var(--neutral-6);
+  z-index: -1;
+  border-radius: 0.5rem;
+}
+.nav-link:hover::before {
+  width: 100%;
+  transition: width 0.3s ease-in;
 }
