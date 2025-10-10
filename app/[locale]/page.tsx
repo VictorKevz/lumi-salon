@@ -32,8 +32,8 @@ export default async function Home({ params }: Params) {
     locale === "fi" ? (fi as Messages) : (en as Messages);
 
   return (
-    <main className="min-h-screen w-full">
+    <>
       <HomeClient messages={messages} />
-    </main>
+    </>
   );
 }

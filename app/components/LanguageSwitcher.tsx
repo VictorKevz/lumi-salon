@@ -18,21 +18,36 @@ export function LanguageSwitcher({ messages }: Props) {
   };
 
   return (
-    <div className="flex gap-2 items-center">
+    <div
+      className="center h-10 min-w-[6rem] w-max border text-[var(--text-primary)] border-[var(--border-dark)] rounded-lg"
+      role="group"
+      aria-label={messages["nav.locale.switcher"]}
+    >
       <Link
         href={switchLocale("fi")}
-        className={`text-sm ${currentLocale === "fi" ? "font-bold" : ""}`}
-        aria-label={messages["nav.locale.fi.aria"]}
+        className={`center px-4 text-sm ${
+          currentLocale === "fi"
+            ? "h-9 bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md ml-0.5"
+            : ""
+        }`}
+        aria-current={currentLocale === "fi" ? "true" : undefined}
+        hrefLang="fi"
       >
-        {messages["nav.locale.fi"]}
+        <span aria-hidden="true">{messages["nav.locale.fi"]}</span>
+        <span className="sr-only">{messages["nav.locale.fi.aria"]}</span>
       </Link>
-      <span>/</span>
       <Link
         href={switchLocale("en")}
-        className={`text-sm ${currentLocale === "en" ? "font-bold" : ""}`}
-        aria-label={messages["nav.locale.en.aria"]}
+        className={`center text-sm px-4 font-bold ${
+          currentLocale === "en"
+            ? "h-9 bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md mr-0.5"
+            : ""
+        }`}
+        aria-current={currentLocale === "en" ? "true" : undefined}
+        hrefLang="en"
       >
-        {messages["nav.locale.en"]}
+        <span aria-hidden="true">{messages["nav.locale.en"]}</span>
+        <span className="sr-only">{messages["nav.locale.en.aria"]}</span>
       </Link>
     </div>
   );

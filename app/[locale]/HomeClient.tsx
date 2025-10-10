@@ -15,9 +15,11 @@ export default function HomeClient({ messages }: { messages: Messages }) {
   }, []);
 
   return (
-    <div className="flex flex-col gap-6">
+    <>
       <Header isClient={isClient} messages={messages} />
-      <Hero isClient={isClient} messages={messages} />
-    </div>
+      <main className="w-full">
+        <Hero isClient={isClient} messages={messages} />
+      </main>
+    </>
   );
 }

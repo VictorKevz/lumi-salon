@@ -12,6 +12,8 @@ import {
 import { MobileMenu } from "./MobileMenu";
 import { SocialsList } from "@/app/components/SocialsList";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
+import Image from "next/image";
+import { Logo } from "@/app/components/Logo";
 
 type HeaderProps = { isClient: boolean; messages: Messages };
 
@@ -117,7 +119,7 @@ export const Banner = ({ messages }: HeaderProps) => {
                     <Icon
                       fontSize="small"
                       aria-hidden="true"
-                      className="text-[var(--primary-6)]"
+                      className="text-[var(--primary-5)]"
                     />
                   ) : null}
                   <span>{c.label}</span>
@@ -128,7 +130,7 @@ export const Banner = ({ messages }: HeaderProps) => {
                     <Icon
                       fontSize="small"
                       aria-hidden="true"
-                      className="text-[var(--primary-6)]"
+                      className="text-[var(--primary-5)]"
                     />
                   ) : null}
                   <span>{c.label}</span>
@@ -155,7 +157,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
       className="between relative w-full h-[4.5rem] bg-[var(--primary-3)] px-4 z-5"
       aria-label="Main navigation"
     >
-      <div className="flex items-center gap-3">
+      <div className="center gap-1">
         <button
           type="button"
           className="center lg:hidden!"
@@ -164,9 +166,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
         >
           <Menu />
         </button>
-        <span className="font-semibold" role="heading" aria-level={1}>
-          {messages["nav.brand"]}
-        </span>
+        <Logo />
       </div>
       <ul className="center hidden! lg:flex! items-center gap-6" role="list">
         {navLinks.map((l) => (
@@ -181,26 +181,15 @@ export const Navbar = ({ messages }: HeaderProps) => {
           </li>
         ))}
       </ul>
-      <div className="center gap-4">
+      <div className="center gap-2">
         <Link
           href={`tel:${messages["phone"] || ""}`}
-          className="center h-10 sm:min-w-[10rem] px-4 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] rounded-lg"
+          className="center h-10 sm:min-w-[9rem] px-2 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] font-bold rounded-lg"
           aria-label={messages["header.cta.call"]}
         >
           {messages["header.cta.call"]}
         </Link>
-        <div
-          className="center gap-2 h-10 border border-[var(--border-dark)] px-4 rounded-lg"
-          role="group"
-          aria-label="Language selection"
-        >
-          <button type="button" aria-label={messages["nav.locale.fi.aria"]}>
-            {messages["nav.locale.fi"]}
-          </button>
-          <button type="button" aria-label={messages["nav.locale.en.aria"]}>
-            {messages["nav.locale.en"]}
-          </button>
-        </div>
+        <LanguageSwitcher messages={messages} />
       </div>
 
       {isOpen && (

@@ -6,7 +6,6 @@ interface LocaleLayoutProps {
   params: Promise<{ locale: string }>;
 }
 
-// Locale-specific metadata generator
 export async function generateMetadata({
   params,
 }: {

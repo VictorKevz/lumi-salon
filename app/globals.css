@@ -19,7 +19,7 @@
 
   /* --- text colors --- */
   --text-primary: #282828;
-  --text-on-primary: var(--neutral-0);
+  --text-on-primary: var(--primary-3);
   --text-secondary: #555555;
   --text-muted: #777777;
 

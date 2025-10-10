@@ -1,4 +1,5 @@
 "use client";
+import { Logo } from "@/app/components/Logo";
 import { SocialsList } from "@/app/components/SocialsList";
 import { NavLink } from "@/lib/header";
 import { Close, KeyboardArrowRight } from "@mui/icons-material";
@@ -17,9 +18,7 @@ export const MobileMenu = ({ toggleMenu, navLinks }: MobileMenuProps) => {
       role="navigation"
     >
       <div className="center justify-between! w-full h-[4.5rem] bg-[var(--primary-3)] px-4">
-        <span className="text-3xl" role="heading" aria-level={1}>
-          Lumi
-        </span>
+        <Logo />
         <button
           type="button"
           onClick={toggleMenu}
