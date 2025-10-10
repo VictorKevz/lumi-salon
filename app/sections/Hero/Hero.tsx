@@ -40,7 +40,7 @@ export const Hero = ({
     >
       <header className="w-full">
         <motion.h1
-          className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-xl"
+          className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl"
           variants={FadeInVariants(-10, 0)}
           initial="hidden"
           animate="visible"
