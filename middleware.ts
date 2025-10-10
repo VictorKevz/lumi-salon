@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
 const locales = ["en", "fi"];
-const defaultLocale = "fi"; // Setting Finnish as default
+const defaultLocale = "fi";
 
 export function middleware(request: NextRequest) {
   // Get pathname and preferred language

@@ -19,15 +19,15 @@ export function LanguageSwitcher({ messages }: Props) {
 
   return (
     <div
-      className="center h-10 min-w-[6rem] w-max border text-[var(--text-primary)] border-[var(--border-dark)] rounded-lg"
+      className="center gap-1 h-10 min-w-max border text-[var(--text-primary)] border-[var(--border-dark)] rounded-lg"
       role="group"
       aria-label={messages["nav.locale.switcher"]}
     >
       <Link
         href={switchLocale("fi")}
-        className={`center px-4 text-sm ${
+        className={`center px-4 text-sm h-9 hover:bg-[var(--neutral-6)] hover:text-[var(--text-on-primary)] hover:rounded-md hover:ml-0.5 ${
           currentLocale === "fi"
-            ? "h-9 bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md ml-0.5"
+            ? "bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md ml-0.5"
             : ""
         }`}
         aria-current={currentLocale === "fi" ? "true" : undefined}
@@ -38,9 +38,9 @@ export function LanguageSwitcher({ messages }: Props) {
       </Link>
       <Link
         href={switchLocale("en")}
-        className={`center text-sm px-4 font-bold ${
+        className={`center h-9 text-sm px-4 font-bold hover:bg-[var(--neutral-6)] hover:text-[var(--text-on-primary)] hover:rounded-md hover:mr-0.5 ${
           currentLocale === "en"
-            ? "h-9 bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md mr-0.5"
+            ? "bg-[var(--neutral-6)] text-[var(--text-on-primary)] rounded-md mr-0.5"
             : ""
         }`}
         aria-current={currentLocale === "en" ? "true" : undefined}

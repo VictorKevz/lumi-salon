@@ -12,8 +12,9 @@ import {
 import { MobileMenu } from "./MobileMenu";
 import { SocialsList } from "@/app/components/SocialsList";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
-import Image from "next/image";
 import { Logo } from "@/app/components/Logo";
+import { motion, AnimatePresence } from "framer-motion";
+import { SlideInVariants } from "@/app/variants";
 
 type HeaderProps = { isClient: boolean; messages: Messages };
 
@@ -96,7 +97,7 @@ export const Banner = ({ messages }: HeaderProps) => {
 
   return (
     <div
-      className="between hidden! lg:flex! w-full h-[3rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4"
+      className="between hidden! lg:flex! w-full h-[2.7rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4"
       aria-label="Salon contact information and social media banner"
       role="banner"
     >
@@ -113,7 +114,7 @@ export const Banner = ({ messages }: HeaderProps) => {
                 <Link
                   href={c.href}
                   aria-label={c.label}
-                  className="flex items-center gap-2 hover:text-[var(--primary-5)]"
+                  className="flex items-center gap-2 hover:text-[var(--primary-3)]"
                 >
                   {Icon ? (
                     <Icon
@@ -168,7 +169,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
         </button>
         <Logo />
       </div>
-      <ul className="center hidden! lg:flex! items-center gap-6" role="list">
+      <ul className="center hidden! lg:flex! items-center ml-10" role="list">
         {navLinks.map((l) => (
           <li key={l.id}>
             <Link
@@ -184,23 +185,27 @@ export const Navbar = ({ messages }: HeaderProps) => {
       <div className="center gap-2">
         <Link
           href={`tel:${messages["phone"] || ""}`}
-          className="center h-10 sm:min-w-[9rem] px-2 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] font-bold rounded-lg"
+          className="center h-10 sm:min-w-[8rem] px-2 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] font-bold rounded-lg"
           aria-label={messages["header.cta.call"]}
         >
           {messages["header.cta.call"]}
         </Link>
         <LanguageSwitcher messages={messages} />
       </div>
-
-      {isOpen && (
-        <>
-          <MobileMenu toggleMenu={toggleMenu} navLinks={navLinks} />
-          <div
-            className="absolute top-0 left-0 w-full min-h-dvh bg-[var(--overlay)] backdrop-blur-[2px] backdrop-saturate-150 z-1"
-            aria-hidden="true"
-          ></div>
-        </>
-      )}
+      <AnimatePresence mode="wait">
+        {isOpen && (
+          <>
+            <MobileMenu toggleMenu={toggleMenu} navLinks={navLinks} />
+            <motion.div
+              className="absolute top-0 left-0 w-full min-h-dvh bg-[var(--overlay)] backdrop-blur-[2px] backdrop-saturate-150 z-1"
+              aria-hidden="true"
+              variants={SlideInVariants("-100%")}
+              initial="hidden"
+              animate="visible"
+            ></motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
