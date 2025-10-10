@@ -85,7 +85,7 @@ export const Header = ({ isClient, messages }: HeaderProps) => {
   }
 
   return (
-    <header className="w-full sticky top-0">
+    <header className="w-full sticky top-0 z-50">
       <Banner isClient={isClient} messages={messages} />
       <Navbar isClient={isClient} messages={messages} />
     </header>
@@ -97,7 +97,7 @@ export const Banner = ({ messages }: HeaderProps) => {
 
   return (
     <div
-      className="between hidden! lg:flex! w-full h-[2.7rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4"
+      className="between hidden! lg:flex! w-full h-[2.7rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4 lg:px-8"
       aria-label="Salon contact information and social media banner"
       role="banner"
     >
@@ -155,7 +155,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
 
   return (
     <nav
-      className="between relative w-full h-[4.5rem] bg-[var(--primary-3)] px-4 z-5"
+      className="between relative w-full h-[4.5rem] bg-[var(--neutral-2)] px-4 lg:px-8 z-50"
       aria-label="Main navigation"
     >
       <div className="center gap-1">
@@ -197,7 +197,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
           <>
             <MobileMenu toggleMenu={toggleMenu} navLinks={navLinks} />
             <motion.div
-              className="absolute top-0 left-0 w-full min-h-dvh bg-[var(--overlay)] backdrop-blur-[2px] backdrop-saturate-150 z-1"
+              className="absolute top-0 left-0 w-full min-h-dvh bg-[var(--overlay)] backdrop-blur-[2px] backdrop-saturate-150 z-10"
               aria-hidden="true"
               variants={SlideInVariants("-100%")}
               initial="hidden"

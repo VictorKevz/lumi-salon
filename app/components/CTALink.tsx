@@ -18,7 +18,7 @@ export function CTALink({
 }: CTALinkProps) {
   const baseStyles = "center h-12 px-4 w-full rounded-lg transition-colors";
   const variantStyles = {
-    fill: "bg-[var(--neutral-6)] text-[var(--primary-3)] hover:bg-[var(--neutral-5)]",
+    fill: "bg-[var(--neutral-6)] text-[var(--text-on-primary)] border-2 border-transparent hover:bg-transparent hover:border-[var(--border-dark)] hover:text-[var(--text-primary)]",
     outline:
       "border-2 border-[var(--neutral-6)] text-[var(--neutral-6)] hover:bg-[var(--neutral-6)] hover:text-[var(--primary-3)]",
   };
