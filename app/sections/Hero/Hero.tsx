@@ -70,7 +70,7 @@ export const Hero = ({
     <section
       id="home"
       aria-label="hero section"
-      className="center flex-col! items-start! w-full min-h-[calc(100dvh-8.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
+      className="center flex-col! items-start! w-full min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
     >
       <header className="w-full">
         <AnimationWrapper
