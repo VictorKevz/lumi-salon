@@ -6,7 +6,7 @@
   --neutral-2: #f2f2f2;
   --neutral-3: #e6e6e6;
   --neutral-4: #d9d9d9;
-  --neutral-5: #cccccc;
+  --neutral-5: #292828f6;
   --neutral-6: #1e1d1d;
 
   --primary-0: #fdf7f5;
@@ -18,7 +18,7 @@
   --primary-6: #8d4330;
 
   /* --- text colors --- */
-  --text-primary: var(--neutral-6);
+  --text-primary: var(--neutral-5);
   --text-on-primary: var(--primary-3);
   --text-secondary: #555555;
   --text-muted: #777777;
@@ -55,10 +55,12 @@ h2 {
   font-family: "Archivo Black", sans-serif !important;
   font-weight: 200;
   line-height: 1.05;
+}
+h1 {
   font-size: clamp(2rem, 2vw + 5vw, 3.5rem);
 }
 p {
-  font-size: clamp(1rem, 2vw + 0.5rem, 1.5rem);
+  font-size: clamp(1.25rem, 2vw + 0.5rem, 1.5rem);
 }
 a,
 button,
@@ -86,9 +88,9 @@ li {
   background: linear-gradient(
     to left,
     #0e0e0e18 0%,
-    #3c2e2a0d 50%,
-    #f0ccbe9d 70%,
-    #dca4979a 100%
+    #3c2e2a0d 25%,
+    #f0ccbe91 70%,
+    #dca497b8 100%
   );
 }
 .sr-only {
