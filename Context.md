@@ -189,3 +189,5 @@ messages/
  └─ en.json
 styles/
  └─ globals.css
+
+ Focus on enhancing accessibility for this section by only adding the correct ARIA attributes where certainly neccessary. If you add any extra semantic tags like label or legend meant for screen readers then mkae sure to add a class called sr-only. That you won't break my UI. dO YOU FULLY UNDERSTAND THESE INSTRUCTIONS? YOU SHOULD NOT BREAK MY UI BY ADDING OR REMOVING ANY TAILWIND CLASSES.

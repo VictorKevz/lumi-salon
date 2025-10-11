@@ -28,16 +28,22 @@ export const SlideInVariants = (
   },
 });
 
-// export const FadeInVariants = (): Variants => ({
-//   hidden: {
-//     opacity: 0,
-//   },
-//   visible: {
-//     opacity: 1,
-//     transition: {
-//       duration: 0.5,
-//       type: "tween",
-//       ease: "easeIn",
-//     },
-//   },
-// });
+export const FadeInVariants = (
+  yOffset: number = 0,
+  delay: number = 0
+): Variants => ({
+  hidden: {
+    opacity: 0,
+    y: yOffset,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      type: "tween",
+      ease: "easeIn",
+      delay,
+    },
+  },
+});

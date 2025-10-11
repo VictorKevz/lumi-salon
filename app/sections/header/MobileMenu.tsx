@@ -15,7 +15,7 @@ type MobileMenuProps = {
 export const MobileMenu = ({ toggleMenu, navLinks }: MobileMenuProps) => {
   return (
     <motion.nav
-      className="between flex-col! gap-4 absolute top-0 left-0 w-full sm:w-[70vw] min-h-dvh bg-[var(--neutral-0)] z-10 sm:border-r-2 border-[var(--primary-4)] pb-10 shadow-amber-950/20 shadow-2xl"
+      className="between flex-col! gap-4 absolute top-0 left-0 w-full sm:w-[70vw] min-h-dvh bg-[var(--neutral-0)] z-20 sm:border-r-2 border-[var(--primary-4)] pb-10 shadow-amber-950/20 shadow-2xl"
       aria-label="Mobile navigation menu"
       role="navigation"
       variants={SlideInVariants("-100%", 0.05)}

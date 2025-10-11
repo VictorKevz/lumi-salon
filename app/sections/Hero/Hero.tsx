@@ -1,6 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import React from "react";
+import { CTALink } from "@/app/components/CTALink";
+import { formatPhoneNumber } from "@/lib/format";
+import { ArrowDownward, KeyboardArrowDown } from "@mui/icons-material";
+import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 
 type Messages = Record<string, string>;
 
@@ -11,32 +16,122 @@ export const Hero = ({
   isClient: boolean;
   messages: Messages;
 }) => {
-  return (
-    <section id="home" className="flex gap-4 items-center flex-col py-10">
-      {isClient ? (
-        <>
-          <motion.h1
-            className="text-4xl"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+  if (!isClient) {
+    return (
+      <section
+        id="home"
+        aria-label="hero section"
+        className="center flex-col! items-start! w-full min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
+      >
+        <header className="w-full">
+          <h1 className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl">
             {messages["hero.title"]}
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
+          </h1>
+          <p className="max-w-xl text-[var(--text-scondary)]">
             {messages["hero.subtitle"]}
-          </motion.p>
-        </>
-      ) : (
-        <>
-          <h1 className="text-4xl">{messages["hero.title"]}</h1>
-          <p>{messages["hero.subtitle"]}</p>
-        </>
-      )}
+          </p>
+        </header>
+        <picture className="absolute top-0 left-0 w-full h-full inset-0 -z-2 pointer-events-none">
+          <source
+            media="(min-width:1024px )"
+            srcSet="/images/hero-desktop.png"
+          />
+          <img
+            src="/images/hero-mobile.png"
+            alt="Salon interior showing modern styling stations and elegant decor"
+            className="w-full h-full object-cover"
+          />
+        </picture>
+        <div className="w-full max-w-md flex flex-col sm:flex-row gap-4 mt-6">
+          <CTALink
+            href={`tel:${formatPhoneNumber(messages["phone"])}`}
+            variant="fill"
+          >
+            {messages["header.cta.call"]}
+          </CTALink>
+          <CTALink href="#contact" variant="outline">
+            {messages["contact.title"]}
+          </CTALink>
+        </div>
+        <Link
+          href={"#services"}
+          className="center w-12 h-12 absolute bottom-4 rounded-full backdrop-blur-2xl border-2 border-[var(--border-dark)] text-[var(--neutral-6)]"
+        >
+          <span className="sr-only">{messages["cta.services"]}</span>
+          <span aria-hidden="true">
+            <ArrowDownward fontSize="large" />
+          </span>
+        </Link>
+        <div className="gradient-overlay backdrop-blur-[3px] lg:backdrop-blur-none backdrop-saturate-150 backdrop-brightness-50 -z-1"></div>
+      </section>
+    );
+  }
+  return (
+    <section
+      id="home"
+      aria-label="hero section"
+      className="center flex-col! items-start! w-full min-h-[calc(100dvh-8.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
+    >
+      <header className="w-full">
+        <AnimationWrapper
+          as={motion.h1}
+          offset={10}
+          className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl"
+        >
+          {messages["hero.title"]}
+        </AnimationWrapper>
+        <AnimationWrapper
+          as={motion.p}
+          offset={10}
+          delay={0.2}
+          className="max-w-xl text-[var(--text-scondary)]"
+        >
+          {messages["hero.subtitle"]}
+        </AnimationWrapper>
+      </header>
+      <AnimationWrapper
+        offset={10}
+        delay={0.3}
+        className="w-full max-w-md flex flex-col sm:flex-row gap-4 mt-6"
+      >
+        <CTALink
+          href={`tel:${formatPhoneNumber(messages["phone"])}`}
+          variant="fill"
+        >
+          {messages["header.cta.call"]}
+        </CTALink>
+        <CTALink href="#contact" variant="outline">
+          {messages["contact.title"]}
+        </CTALink>
+      </AnimationWrapper>
+      <Link
+        href={"#services"}
+        className="center min-w-13 min-h-13 lg:w-18 lg:h-18 absolute bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
+      >
+        <span className="sr-only">{messages["cta.services"]}</span>
+        <motion.span
+          aria-hidden="true"
+          animate={{
+            y: [0, 9, 0],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <KeyboardArrowDown className="text-3xl! lg:text-5xl!" />
+        </motion.span>
+      </Link>
+      <picture className="absolute top-0 left-0 w-full h-full inset-0 -z-2 pointer-events-none">
+        <source media="(min-width:1024px )" srcSet="/images/hero-desktop.png" />
+        <img
+          src="/images/hero-mobile.png"
+          alt="Salon interior showing modern styling stations and elegant decor"
+          className="w-full h-full object-cover"
+        />
+      </picture>
+      <div className="gradient-overlay backdrop-blur-[3px] lg:backdrop-blur-none backdrop-saturate-150 backdrop-brightness-50 -z-1"></div>
     </section>
   );
 };
