@@ -37,8 +37,13 @@
   /* --- Optional borders / shadows --- */
   --border-light: #e1cbc4f3;
   --border-dark: #1d1c1c;
+
   --overlay: #02020249;
   --shadow-light: rgba(0, 0, 0, 0.05);
+
+  /* Glass colors and effects */
+  --glass-border: #f0e5e0b4;
+  --glass-bg: rgba(255, 255, 255, 0.178);
 }
 * {
   font-family: "Titillium Web", sans-serif;
@@ -52,9 +57,10 @@ body.loaded {
 }
 h1,
 h2 {
-  font-family: "Archivo Black", sans-serif !important;
-  font-weight: 200;
+  font-family: "Josefin Sans", sans-serif !important;
+  font-weight: bolder;
   line-height: 1.05;
+  text-transform: uppercase;
 }
 h1 {
   font-size: clamp(2rem, 2vw + 5vw, 3.5rem);
@@ -79,19 +85,13 @@ li {
 .between {
   justify-content: space-between;
 }
-.gradient-overlay {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    to left,
-    #0e0e0e18 0%,
-    #3c2e2a0d 25%,
-    #f0ccbe91 70%,
-    #dca497b8 100%
-  );
+  background: radial-gradient(#c68667bd, #d9d9d968);
 }
 .sr-only {
   position: absolute !important;
