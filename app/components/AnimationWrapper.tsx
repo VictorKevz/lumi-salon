@@ -1,15 +1,26 @@
 "use client";
 
 import { FadeInVariants } from "@/app/variants";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import React from "react";
 
 type AnimationWrapperProps = {
   children: React.ReactNode;
   delay?: number;
   offset?: number;
-  as?: typeof motion.div | typeof motion.h1 | typeof motion.p;
+  as?:
+    | typeof motion.div
+    | typeof motion.header
+    | typeof motion.article
+    | typeof motion.h1
+    | typeof motion.p;
   className?: string;
+  variantsFn?: (offset: number, delay: number) => Variants;
+  animate?: boolean;
+  viewport?: {
+    once: boolean;
+    amount: number;
+  };
 };
 
 export const AnimationWrapper = ({
@@ -18,11 +29,16 @@ export const AnimationWrapper = ({
   offset = 0,
   as: Component = motion.div,
   className,
+  variantsFn = (offset: number, delay: number) => FadeInVariants(offset, delay),
+  animate = true,
+  viewport = { once: true, amount: 0.3 },
 }: AnimationWrapperProps) => (
   <Component
-    variants={FadeInVariants(offset, delay)}
+    variants={variantsFn(offset, delay)}
     initial="hidden"
-    animate="visible"
+    {...(animate
+      ? { animate: "visible" }
+      : { whileInView: "visible", viewport })}
     className={className}
   >
     {children}

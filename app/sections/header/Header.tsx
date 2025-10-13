@@ -155,7 +155,7 @@ export const Navbar = ({ messages }: HeaderProps) => {
 
   return (
     <nav
-      className="between relative w-full h-[4.5rem] bg-[var(--neutral-2)] px-4 lg:px-8 z-50"
+      className="between relative w-full h-[4.5rem] bg-[var(--primary-2)] px-4 lg:px-8 z-50 shadow-2xl shadow-black/20"
       aria-label="Main navigation"
     >
       <div className="center gap-1">
