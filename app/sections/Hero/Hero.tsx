@@ -6,16 +6,11 @@ import { CTALink } from "@/app/components/CTALink";
 import { formatPhoneNumber } from "@/lib/format";
 import { ArrowDownward, KeyboardArrowDown } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
+import { SectionProps } from "@/lib/header";
 
 type Messages = Record<string, string>;
 
-export const Hero = ({
-  isClient,
-  messages,
-}: {
-  isClient: boolean;
-  messages: Messages;
-}) => {
+export const Hero = ({ isClient, messages }: SectionProps) => {
   if (!isClient) {
     return (
       <section

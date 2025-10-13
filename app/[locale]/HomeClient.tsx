@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
-
-type Messages = Record<string, string>;
+import { Messages } from "@/lib/header";
+import { Services } from "../sections/services/Services";
 
 export default function HomeClient({ messages }: { messages: Messages }) {
   const [isClient, setIsClient] = useState(false);
@@ -19,6 +19,7 @@ export default function HomeClient({ messages }: { messages: Messages }) {
       <Header isClient={isClient} messages={messages} />
       <main className="w-full">
         <Hero isClient={isClient} messages={messages} />
+        <Services isClient={isClient} messages={messages} />
       </main>
     </>
   );

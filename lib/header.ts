@@ -17,7 +17,10 @@ type MuiIcon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
 /* eslint-enable @typescript-eslint/no-empty-object-type */
 
 export type Messages = Record<string, string>;
-
+export type SectionProps = {
+  isClient: boolean;
+  messages: Messages;
+};
 export type Contact = {
   type: string;
   label: string;

@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import en from "../../messages/en.json";
 import fi from "../../messages/fi.json";
 import dynamic from "next/dynamic";
+import { Messages } from "@/lib/header";
 
-type Messages = Record<string, string>;
 type Params = {
   params: Promise<{ locale: string }>;
 };
