@@ -89,13 +89,21 @@ li {
 .between {
   justify-content: space-between;
 }
-.overlay {
+.overlay,
+.card-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to right, #f3a88287, #87563daf, #0101014e);
+  background: linear-gradient(to right, #f3a8824d, #87563daf, #0101014e);
+}
+
+.card-overlay {
+  background: linear-gradient(to top, #73554547, #7a4d37be, #0000004e);
+}
+.card-inset {
+  box-shadow: inset 0 0 0.5rem 0.25rem #dd95713f;
 }
 .sr-only {
   position: absolute !important;

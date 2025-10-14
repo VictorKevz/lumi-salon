@@ -75,7 +75,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
     >
       <AnimationWrapper
         offset={5}
-        className="center max-w-screen-md w-full h-full flex-col! px-4 py-8 backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg"
+        className="card-inset center max-w-screen-md w-full flex-col! px-4 py-8 backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg"
       >
         <header className="center flex-col! w-full text-center">
           <AnimationWrapper
@@ -114,7 +114,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
       </AnimationWrapper>
       <Link
         href={"#services"}
-        className="center min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-2.5 sm:bottom-8 xl:bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
+        className="card-inset center group min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-2.5 sm:bottom-8 xl:bottom-2.5 rounded-full backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--neutral-0)] hover:scale-110 hover:bg-[var(--primary-5)]"
       >
         <span className="sr-only">{messages["cta.services"]}</span>
         <motion.span
@@ -128,7 +128,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             ease: "easeInOut",
           }}
         >
-          <KeyboardArrowDown className="text-3xl! lg:text-5xl!" />
+          <KeyboardArrowDown className="text-3xl! lg:text-6xl!" />
         </motion.span>
       </Link>
       <picture className="absolute top-0 left-0 w-full h-full inset-0 -z-2 pointer-events-none">

@@ -73,7 +73,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
   return (
     <section
       id="services"
-      className="center flex-col! w-full relative bg-[var(--primary-1)] py-20 px-4 lg:px-8 z-5"
+      className="center flex-col! w-full relative bg-[var(--primary-0)] py-20 px-4 lg:px-8 z-5"
     >
       <AnimationWrapper
         as={motion.header}
@@ -91,10 +91,10 @@ export const Services = ({ messages, isClient }: SectionProps) => {
             as={motion.article}
             animate={false}
             offset={-10}
-            className="between flex-col! w-full h-full bg-[var(--primary-3)] rounded-lg shadow-2xl shadow-black/20"
+            className="between flex-col! w-full h-full bg-[var(--primary-1)] rounded-lg shadow-2xl shadow-black/20"
           >
             <span
-              className="center w-20 h-20 rounded-full backdrop-blur-2xl backdrop-brightness-80 backdrop-saturate-200 shadow-2xl bg-[(--glass-bg)] border-2 border-[var(--glass-border)] -mt-10 text-[var(--neutral-0)]"
+              className="center w-20 h-20 rounded-full shadow-2xl bg-[var(--primary-4)] -mt-10"
               role="presentation"
             >
               <Image
@@ -118,7 +118,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
                 alt={service.description}
                 className="w-full! object-cover object-center rounded-b-lg"
               />
-              <div className="overlay rounded-b-lg"></div>
+              <div className="card-overlay rounded-b-lg"></div>
             </div>
           </AnimationWrapper>
         ))}
