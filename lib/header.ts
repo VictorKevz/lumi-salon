@@ -11,13 +11,16 @@ import { OverridableComponent } from "@mui/types";
 import { SvgIconTypeMap } from "@mui/material";
 
 /* eslint-disable @typescript-eslint/no-empty-object-type */
-type MuiIcon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
+export type MuiIcon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
   muiName: string;
 };
 /* eslint-enable @typescript-eslint/no-empty-object-type */
 
 export type Messages = Record<string, string>;
-
+export type SectionProps = {
+  isClient: boolean;
+  messages: Messages;
+};
 export type Contact = {
   type: string;
   label: string;

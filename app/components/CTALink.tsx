@@ -1,5 +1,6 @@
 "use client";
 
+import { MuiIcon } from "@/lib/header";
 import Link from "next/link";
 import { ComponentPropsWithoutRef } from "react";
 
@@ -8,15 +9,18 @@ type CTAVariant = "fill" | "outline";
 interface CTALinkProps extends ComponentPropsWithoutRef<typeof Link> {
   variant?: CTAVariant;
   children: React.ReactNode;
+  Icon: MuiIcon;
 }
 
 export function CTALink({
   variant = "fill",
   className = "",
   children,
+  Icon,
   ...props
 }: CTALinkProps) {
-  const baseStyles = "center h-12 px-4 w-full rounded-lg transition-colors";
+  const baseStyles =
+    "center gap-1 h-12 lg:h-14 px-4 w-full font-bold text-lg rounded-lg transition-colors shadow-2xl shadow-black/20";
   const variantStyles = {
     fill: "bg-[var(--neutral-6)] text-[var(--text-on-primary)] border-2 border-transparent hover:bg-transparent hover:border-[var(--border-dark)] hover:text-[var(--text-primary)]",
     outline:
@@ -25,10 +29,11 @@ export function CTALink({
 
   return (
     <Link
-      className={`font-bold ${baseStyles} ${variantStyles[variant]} ${className}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
+      rel="noopener noreferrer"
       {...props}
     >
-      {children}
+      <Icon fontSize="small" className="mt-1" /> {children}
     </Link>
   );
 }

@@ -4,18 +4,16 @@ import Link from "next/link";
 import React from "react";
 import { CTALink } from "@/app/components/CTALink";
 import { formatPhoneNumber } from "@/lib/format";
-import { ArrowDownward, KeyboardArrowDown } from "@mui/icons-material";
+import {
+  ArrowDownward,
+  Call,
+  KeyboardArrowDown,
+  Message,
+} from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
+import { SectionProps } from "@/lib/header";
 
-type Messages = Record<string, string>;
-
-export const Hero = ({
-  isClient,
-  messages,
-}: {
-  isClient: boolean;
-  messages: Messages;
-}) => {
+export const Hero = ({ isClient, messages }: SectionProps) => {
   if (!isClient) {
     return (
       <section
@@ -28,7 +26,7 @@ export const Hero = ({
             <h1 className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl">
               {messages["hero.title"]}
             </h1>
-            <p className="max-w-xl text-[var(--text-scondary)]">
+            <p className="max-w-xl !text-[var(--text-primary)]">
               {messages["hero.subtitle"]}
             </p>
           </header>
@@ -36,10 +34,11 @@ export const Hero = ({
             <CTALink
               href={`tel:${formatPhoneNumber(messages["phone"])}`}
               variant="fill"
+              Icon={Call}
             >
               {messages["header.cta.call"]}
             </CTALink>
-            <CTALink href="#contact" variant="outline">
+            <CTALink href="#contact" variant="outline" Icon={Message}>
               {messages["contact.title"]}
             </CTALink>
           </div>
@@ -91,7 +90,7 @@ export const Hero = ({
             as={motion.p}
             offset={10}
             delay={0.2}
-            className="max-w-xl text-[var(--text-scondary)]"
+            className="max-w-xl !text-[var(--text-primary)]"
           >
             {messages["hero.subtitle"]}
           </AnimationWrapper>
@@ -104,17 +103,18 @@ export const Hero = ({
           <CTALink
             href={`tel:${formatPhoneNumber(messages["phone"])}`}
             variant="fill"
+            Icon={Call}
           >
             {messages["header.cta.call"]}
           </CTALink>
-          <CTALink href="#contact" variant="outline">
+          <CTALink href="#contact" variant="outline" Icon={Message}>
             {messages["contact.title"]}
           </CTALink>
         </AnimationWrapper>
       </AnimationWrapper>
       <Link
         href={"#services"}
-        className="center min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-4 sm:bottom-8 xl:bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
+        className="center min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-2.5 sm:bottom-8 xl:bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
       >
         <span className="sr-only">{messages["cta.services"]}</span>
         <motion.span
