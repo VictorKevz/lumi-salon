@@ -8,7 +8,7 @@ import {
   ArrowDownward,
   Call,
   KeyboardArrowDown,
-  Send,
+  Message,
 } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { SectionProps } from "@/lib/header";
@@ -38,7 +38,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             >
               {messages["header.cta.call"]}
             </CTALink>
-            <CTALink href="#contact" variant="outline" Icon={Send}>
+            <CTALink href="#contact" variant="outline" Icon={Message}>
               {messages["contact.title"]}
             </CTALink>
           </div>
@@ -107,7 +107,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
           >
             {messages["header.cta.call"]}
           </CTALink>
-          <CTALink href="#contact" variant="outline" Icon={Send}>
+          <CTALink href="#contact" variant="outline" Icon={Message}>
             {messages["contact.title"]}
           </CTALink>
         </AnimationWrapper>

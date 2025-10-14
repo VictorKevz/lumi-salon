@@ -4,7 +4,7 @@ import { SectionProps } from "@/lib/header";
 import { getServices } from "@/lib/services";
 import Image from "next/image";
 import React from "react";
-import { Send } from "@mui/icons-material";
+import { Message } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { motion } from "framer-motion";
 export const Services = ({ messages, isClient }: SectionProps) => {
@@ -62,7 +62,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
         >
           <p className="my-4">{messages["services.custom"]}</p>
           <div className="max-w-xs w-full">
-            <CTALink href="#contact" variant="fill" Icon={Send}>
+            <CTALink href="#contact" variant="fill" Icon={Message}>
               {messages["contact.title"]}
             </CTALink>
           </div>
@@ -94,7 +94,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
             className="between flex-col! w-full h-full bg-[var(--primary-3)] rounded-lg shadow-2xl shadow-black/20"
           >
             <span
-              className="center w-20 h-20 rounded-xl bg-[var(--primary-6)] -mt-10 text-[var(--neutral-0)]"
+              className="center w-20 h-20 rounded-full backdrop-blur-2xl backdrop-brightness-80 backdrop-saturate-200 shadow-2xl bg-[(--glass-bg)] border-2 border-[var(--glass-border)] -mt-10 text-[var(--neutral-0)]"
               role="presentation"
             >
               <Image
@@ -130,7 +130,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
       >
         <p className="my-4">{messages["services.custom"]}</p>
         <div className="max-w-xs w-full">
-          <CTALink href="#contact" variant="fill" Icon={Send}>
+          <CTALink href="#contact" variant="fill" Icon={Message}>
             {messages["contact.title"]}
           </CTALink>
         </div>

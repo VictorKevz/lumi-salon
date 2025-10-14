@@ -33,7 +33,7 @@ export function CTALink({
       rel="noopener noreferrer"
       {...props}
     >
-      {children} <Icon fontSize="small" />
+      <Icon fontSize="small" className="mt-1" /> {children}
     </Link>
   );
 }
