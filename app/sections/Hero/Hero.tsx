@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
+import { PictureBg } from "@/app/components/PictureBg";
 import { CTALink } from "@/app/components/CTALink";
 import { formatPhoneNumber } from "@/lib/format";
 import {
@@ -52,17 +53,11 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             <ArrowDownward fontSize="large" />
           </span>
         </Link>
-        <picture className="absolute top-0 left-0 w-full h-full inset-0 -z-2 pointer-events-none">
-          <source
-            media="(min-width:1024px )"
-            srcSet="/images/hero-desktop.webp"
-          />
-          <img
-            src="/images/hero-mobile.webp"
-            alt="Salon interior showing modern styling stations and elegant decor"
-            className="w-full h-full object-cover"
-          />
-        </picture>
+        <PictureBg
+          desktopUrl="/images/hero-desktop.webp"
+          mobileUrl="/images/hero-mobile.webp"
+          alt={messages["hero.bg.alt"]}
+        />
         <div className="gradient-overlay backdrop-blur-[3px] lg:backdrop-blur-none backdrop-saturate-150 backdrop-brightness-50 -z-1"></div>
       </section>
     );
@@ -131,17 +126,11 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
           <KeyboardArrowDown className="text-3xl! lg:text-6xl!" />
         </motion.span>
       </Link>
-      <picture className="absolute top-0 left-0 w-full h-full inset-0 -z-2 pointer-events-none">
-        <source
-          media="(min-width:1024px )"
-          srcSet="/images/hero-desktop.webp"
-        />
-        <img
-          src="/images/hero-mobile.webp"
-          alt="Salon interior showing modern styling stations and elegant decor"
-          className="w-full h-full object-cover"
-        />
-      </picture>
+      <PictureBg
+        desktopUrl="/images/hero-desktop.webp"
+        mobileUrl="/images/hero-mobile.webp"
+        alt={messages["hero.bg.alt"]}
+      />
       <div className="overlay backdrop-saturate-120 backdrop-brightness-90 -z-1"></div>
     </section>
   );

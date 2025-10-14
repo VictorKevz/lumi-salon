@@ -7,6 +7,7 @@ import React from "react";
 import { Message } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { motion } from "framer-motion";
+import { ServiceIcon } from "@/app/components/ServiceIcon";
 export const Services = ({ messages, isClient }: SectionProps) => {
   const services = getServices(messages);
   if (!isClient) {
@@ -25,19 +26,8 @@ export const Services = ({ messages, isClient }: SectionProps) => {
               key={service.id}
               className="between flex-col! w-full h-full bg-[var(--primary-3)] rounded-lg shadow-2xl shadow-black/20"
             >
-              <span
-                className="center w-20 h-20 rounded-xl bg-[var(--primary-6)] -mt-10 text-[var(--neutral-0)]"
-                role="presentation"
-              >
-                <Image
-                  src={service.icon}
-                  width={48}
-                  height={48}
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                />
-              </span>
+              <ServiceIcon url={service.icon} hide={false} />
+
               <header className=" mt-4 text-center px-3.5">
                 <h3 className="font-semibold text-xl">{service.title}</h3>
                 <p className="text-base! md:text-lg!">{service.description}</p>
@@ -93,19 +83,10 @@ export const Services = ({ messages, isClient }: SectionProps) => {
             offset={-10}
             className="between flex-col! w-full h-full bg-[var(--primary-1)] rounded-lg shadow-2xl shadow-black/20"
           >
-            <span
-              className="center w-20 h-20 rounded-full shadow-2xl bg-[var(--primary-4)] -mt-10"
-              role="presentation"
-            >
-              <Image
-                src={service.icon}
-                width={48}
-                height={48}
-                alt=""
-                aria-hidden="true"
-                role="presentation"
-              />
+            <span className="-mt-10">
+              <ServiceIcon url={service.icon} hide={false} />
             </span>
+
             <header className=" mt-4 text-center px-3.5">
               <h3 className="font-semibold text-xl">{service.title}</h3>
               <p className="text-base! md:text-lg!">{service.description}</p>
