@@ -114,7 +114,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
       </AnimationWrapper>
       <Link
         href={"#services"}
-        className="center min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-4 sm:bottom-8 xl:bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
+        className="center min-w-13 min-h-13 md:w-16 md:h-16 absolute bottom-2.5 sm:bottom-8 xl:bottom-4 rounded-full bg-[var(--primary-6)] hover:bg-[var(--neutral-6)] text-[var(--neutral-3)]"
       >
         <span className="sr-only">{messages["cta.services"]}</span>
         <motion.span
