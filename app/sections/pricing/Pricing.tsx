@@ -7,18 +7,18 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 export const Pricing = ({ isClient, messages }: SectionProps) => {
-  const [selectedTab, setSelectedTab] = useState<PricingTabId>("coloring");
+  const [selectedTab, setSelectedTab] = useState<PricingTabId>("haircut");
   const tabs = getPricingTabs(messages);
   const pricingData = getPricingData(messages);
   return (
     <section className="center flex-col! w-full relative py-20 px-4 lg:px-8 z-5">
-      <header className="center flex-col! max-w-2xl w-full  text-center">
+      <header className="center flex-col! max-w-3xl w-full  text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg">
         <h2>{messages["pricing.heading"]}</h2>
-        <p className="text-[var(--text-primary)]!">
+        <p className="text-[var(--text-primary)]! font-semibold">
           {messages["pricing.intro"]}
         </p>
       </header>
-      <div className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-8 backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg">
+      <div className="center flex-col! max-w-screen-xl w-full mt-10 px-4 lg:px-6 py-8 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg">
         <nav className="w-full" aria-label={messages["pricing.tabs.ariaLabel"]}>
           <ul
             role="tablist"
@@ -34,7 +34,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
                     aria-controls={`tabpanel-${tab.id}`}
                     id={`tab-${tab.id}`}
                     onClick={() => setSelectedTab(tab.id)}
-                    className={`center  flex-col! w-full border-2 rounded-xl px-2.5 py-3 font-bold gap-1 uppercase ${
+                    className={`center  flex-col! w-full border rounded-xl px-2.5 py-3 font-bold gap-1 uppercase ${
                       isActive
                         ? "shadow-2xl text-[var(--neutral-0)] bg-[var(--primary-6)]"
                         : "card-inset border-[var(--glass-border)] backdrop-blur-2xl"
@@ -53,7 +53,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
           {pricingData[selectedTab].map((option) => (
             <li
               key={option.id}
-              className="w-full relative between backdrop-blur-3xl bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
+              className="w-full relative between backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
             >
               <div>
                 <Image
@@ -80,7 +80,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
         mobileUrl="/images/pricing-mobile.webp"
         alt={messages["hero.bg.alt"]}
       />
-      <div className="overlay backdrop-blur-[0.2rem] backdrop-saturate-120 backdrop-brightness-90 -z-1"></div>
+      <div className="overlay backdrop-blur-[0.1rem] backdrop-saturate-150 backdrop-brightness-90 -z-1"></div>
     </section>
   );
 };
