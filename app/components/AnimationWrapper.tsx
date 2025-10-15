@@ -10,8 +10,10 @@ type AnimationWrapperProps = {
   offset?: number;
   as?:
     | typeof motion.div
+    | typeof motion.li
     | typeof motion.header
     | typeof motion.article
+    | typeof motion.section
     | typeof motion.h1
     | typeof motion.p;
   className?: string;

@@ -1,8 +1,10 @@
+import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { PictureBg } from "@/app/components/PictureBg";
 import { ServiceIcon } from "@/app/components/ServiceIcon";
 import { PricingTabId } from "@/app/types/pricing";
 import { SectionProps } from "@/lib/header";
 import { getPricingData, getPricingTabs } from "@/lib/pricing";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -71,14 +73,21 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
       className="center flex-col! w-full relative py-20 px-4 lg:px-8 z-5"
       aria-labelledby="pricing-heading"
     >
-      <header className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg">
+      <AnimationWrapper
+        as={motion.header}
+        animate={false}
+        offset={-10}
+        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg"
+      >
         <h2 id="pricing-heading">{messages["pricing.heading"]}</h2>
         <p className="text-[var(--text-primary)]! font-semibold">
           {messages["pricing.intro"]}
         </p>
-      </header>
+      </AnimationWrapper>
 
-      <div
+      <AnimationWrapper
+        offset={-10}
+        animate={false}
         className="center flex-col! max-w-screen-xl w-full mt-10 px-4 lg:px-6 py-8 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg"
         aria-live="polite"
       >
@@ -90,7 +99,13 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
             {tabs.map((tab) => {
               const isActive = selectedTab === tab.id;
               return (
-                <li key={tab.id} role="presentation" className="w-full">
+                <AnimationWrapper
+                  key={tab.id}
+                  as={motion.li}
+                  offset={-10}
+                  animate={false}
+                  className="w-full"
+                >
                   <button
                     type="button"
                     role="tab"
@@ -108,7 +123,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
                     <span>{tab.label}</span>
                     {isActive && <span className="sr-only">(current tab)</span>}
                   </button>
-                </li>
+                </AnimationWrapper>
               );
             })}
           </ul>
@@ -126,7 +141,12 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
             <ul className="w-full grid md:grid-cols-2 xl:grid-cols-3 gap-4 mt-6">
               {pricingData[tab.id].map((option) => (
                 <li key={option.id} className="w-full">
-                  <article className="w-full relative between backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl">
+                  <AnimationWrapper
+                    as={motion.article}
+                    offset={-10}
+                    animate={false}
+                    className="w-full relative between backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
+                  >
                     <div>
                       <Image
                         src={option.image}
@@ -146,13 +166,13 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
                     >
                       {option.price}
                     </span>
-                  </article>
+                  </AnimationWrapper>
                 </li>
               ))}
             </ul>
           </div>
         ))}
-      </div>
+      </AnimationWrapper>
 
       <PictureBg
         desktopUrl="/images/pricing-desktop.webp"
