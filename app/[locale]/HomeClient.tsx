@@ -4,6 +4,7 @@ import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
 import { Messages } from "@/lib/header";
 import { Services } from "../sections/services/Services";
+import { Pricing } from "../sections/pricing/Pricing";
 
 export default function HomeClient({ messages }: { messages: Messages }) {
   const [isClient, setIsClient] = useState(false);
@@ -20,6 +21,7 @@ export default function HomeClient({ messages }: { messages: Messages }) {
       <main className="w-full">
         <Hero isClient={isClient} messages={messages} />
         <Services isClient={isClient} messages={messages} />
+        <Pricing isClient={isClient} messages={messages} />
       </main>
     </>
   );
