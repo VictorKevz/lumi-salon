@@ -61,7 +61,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
                   width={40}
                   height={40}
                   alt=""
-                  className="w-14 h-14 object-cover rounded-full"
+                  className="w-14 h-14 lg:w-18 lg:h-18 object-cover rounded-full shadow-2xl border-2 border-[var(--glass-border)]"
                 />
                 <h3 className="font-bold text-[var(--text-primary)]">
                   {option.title}

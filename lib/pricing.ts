@@ -32,7 +32,7 @@ export function getPricingData(messages: Messages): PricingData {
         title: messages[`pricing.${tabId}.${idx}.title`],
         description: messages[`pricing.${tabId}.${idx}.desc`],
         price: messages[`pricing.${tabId}.${idx}.price`],
-        image: `/images/services/${tabId}.png`,
+        image: `/images/prices/${tabId}/${idx}.webp`,
       };
     });
     data[tabId as PricingTabId] = items;
