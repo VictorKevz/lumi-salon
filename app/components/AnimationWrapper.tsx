@@ -33,7 +33,7 @@ export const AnimationWrapper = ({
   className,
   variantsFn = (offset: number, delay: number) => FadeInVariants(offset, delay),
   animate = true,
-  viewport = { once: true, amount: 0.3 },
+  viewport = { once: true, amount: 0.2 },
 }: AnimationWrapperProps) => (
   <Component
     variants={variantsFn(offset, delay)}
