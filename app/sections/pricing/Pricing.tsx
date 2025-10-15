@@ -113,7 +113,7 @@ export const Pricing = ({ isClient, messages }: SectionProps) => {
                     aria-controls={`tabpanel-${tab.id}`}
                     id={`tab-${tab.id}`}
                     onClick={() => setSelectedTab(tab.id)}
-                    className={`center flex-col! w-full border rounded-xl px-2.5 py-3 font-bold gap-1 uppercase ${
+                    className={`center flex-col! w-full border rounded-xl px-2.5 py-3 font-bold gap-1 uppercase hover:bg-[var(--primary-6)]! hover:text-[var(--neutral-0)] hover:scale-105 hover:-translate-y-0.5 ${
                       isActive
                         ? "shadow-2xl text-[var(--neutral-0)] bg-[var(--primary-6)]"
                         : "card-inset border-[var(--glass-border)] backdrop-blur-2xl"
