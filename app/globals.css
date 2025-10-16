@@ -46,32 +46,36 @@
   --glass-bg: rgba(255, 255, 255, 0.178);
 }
 * {
-  font-family: "Titillium Web", sans-serif;
+  font-family: var(--font-titillium), sans-serif;
 }
 
-/* Performance optimizations */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-josefin), serif;
+}
+
 .content-visibility-auto {
   content-visibility: auto;
 }
 
-/* Optimize animations */
 .optimize-animation {
   will-change: transform, opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
 }
 
-/* Lazy load images */
 .lazy-image {
   transition: opacity 0.3s ease;
 }
 
-/* Optimize hero transitions */
 .loaded .hero-element {
   transition-duration: 0.3s !important;
 }
 
-/* Critical performance optimizations */
 body.preload * {
   animation-duration: 0.0001s !important;
   animation-delay: 0.0001s !important;

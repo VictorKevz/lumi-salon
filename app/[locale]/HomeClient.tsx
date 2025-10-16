@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, lazy, Suspense } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
 import { Messages } from "@/lib/header";
@@ -11,14 +11,14 @@ const Services = dynamic(
       default: mod.Services,
     })),
   {
-    ssr: true, // Enable SSR for SEO benefits
+    ssr: true,
     loading: () => (
       <div
         aria-live="polite"
         className="min-h-[30vh] flex items-center justify-center"
       >
         <span className="sr-only">Loading services section</span>
-        <div className="animate-pulse bg-gray-200 rounded-md w-full max-w-3xl h-24"></div>
+        <div className="animate-pulse bg-gray-500 rounded-md w-full max-w-3xl h-24"></div>
       </div>
     ),
   }
@@ -30,7 +30,7 @@ const Pricing = dynamic(
       default: mod.Pricing,
     })),
   {
-    ssr: true, // Enable SSR for SEO benefits
+    ssr: true,
     loading: () => (
       <div
         aria-live="polite"
@@ -55,7 +55,6 @@ export default function HomeClient({ messages }: { messages: Messages }) {
     }, 100);
 
     const enhancePerformance = () => {
-      // Add Intersection Observer for lazy loading below-the-fold elements
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -68,7 +67,6 @@ export default function HomeClient({ messages }: { messages: Messages }) {
         { rootMargin: "100px" }
       );
 
-      // Target elements that should be lazy loaded
       document.querySelectorAll(".lazy-load-section").forEach((el) => {
         observer.observe(el);
       });

@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
@@ -8,7 +7,6 @@ const nextConfig = {
   },
   poweredByHeader: false,
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ["framer-motion", "@mui/icons-material"],
   },
 };

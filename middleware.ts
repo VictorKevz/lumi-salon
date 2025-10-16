@@ -11,7 +11,6 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // Always redirect to defaultLocale (fi) if no locale in pathname or just root path
   if (!pathnameHasLocale || pathname === "/") {
     return NextResponse.redirect(
       new URL(
@@ -25,8 +24,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next, api, static files)
-    "/((?!_next|api|.*\\..*).*)",
-  ],
+  matcher: ["/((?!_next|api|.*\\..*).*)"],
 };

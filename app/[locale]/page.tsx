@@ -30,12 +30,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   };
 }
 
-// Import the client component with SSR enabled for SEO benefits
 const HomeClient = dynamic(() => import("./HomeClient"), {
   ssr: true,
   loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="sr-only">Loading Lumi Salon website...</div>
+    <div className="min-h-screen center">
+      <p className="sr-only">Loading Lumi Salon website...</p>
     </div>
   ),
 });

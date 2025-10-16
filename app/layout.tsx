@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import { titillium, josefin } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Lumi Salon - Professional Hair Salon in Oulu",
@@ -29,16 +30,14 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="fi" suppressHydrationWarning>
+    <html
+      lang="fi"
+      suppressHydrationWarning
+      className={`${titillium.variable} ${josefin.variable}`}
+    >
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
 
         <link
           rel="preload"
@@ -56,21 +55,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           media="(min-width: 1024px)"
           fetchPriority="high"
         />
-        <link
-          rel="preload"
-          as="style"
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-        <noscript>
-          <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
-        </noscript>
       </head>
       <body className="antialiased preload">{children}</body>
     </html>
