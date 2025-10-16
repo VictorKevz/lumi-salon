@@ -34,15 +34,14 @@ export const FadeInVariants = (
 ): Variants => ({
   hidden: {
     opacity: 0,
-    y: yOffset,
+    ...(yOffset !== 0 && { y: yOffset }),
   },
   visible: {
     opacity: 1,
-    y: 0,
+    ...(yOffset !== 0 && { y: 0 }),
     transition: {
-      duration: 0.5,
+      duration: 0.4,
       type: "tween",
-      ease: "easeIn",
       delay,
     },
   },

@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { PictureBg } from "@/app/components/PictureBg";
 import { CTALink } from "@/app/components/CTALink";
 import { formatPhoneNumber } from "@/lib/format";
@@ -13,8 +13,13 @@ import {
 } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { SectionProps } from "@/lib/header";
+import { useLCPComplete } from "@/app/hooks/useLCPComplete";
 
 export const Hero = ({ isClient, messages }: SectionProps) => {
+  const lcpComplete = useLCPComplete();
+
+  const shouldAnimate = isClient && lcpComplete;
+
   if (!isClient) {
     return (
       <section
@@ -70,6 +75,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
     >
       <AnimationWrapper
         offset={5}
+        animate={shouldAnimate}
         className="card-inset center max-w-screen-md w-full flex-col! px-4 py-8 backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg"
       >
         <header className="center flex-col! w-full text-center">
@@ -77,6 +83,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             as={motion.h1}
             delay={0.1}
             offset={10}
+            animate={shouldAnimate}
             className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl"
           >
             {messages["hero.title"]}
@@ -85,6 +92,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             as={motion.p}
             offset={10}
             delay={0.2}
+            animate={shouldAnimate}
             className="max-w-xl !text-[var(--text-primary)]"
           >
             {messages["hero.subtitle"]}
@@ -93,6 +101,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
         <AnimationWrapper
           offset={10}
           delay={0.3}
+          animate={shouldAnimate}
           className="w-full max-w-md flex flex-col sm:flex-row gap-4 mt-6"
         >
           <CTALink
@@ -114,9 +123,13 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
         <span className="sr-only">{messages["cta.services"]}</span>
         <motion.span
           aria-hidden="true"
-          animate={{
-            y: [0, 9, 0],
-          }}
+          animate={
+            shouldAnimate
+              ? {
+                  y: [0, 9, 0],
+                }
+              : {}
+          }
           transition={{
             duration: 2,
             repeat: Infinity,
