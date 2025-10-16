@@ -121,6 +121,11 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
             duration: 2,
             repeat: Infinity,
             ease: "easeInOut",
+            type: "tween",
+            staggerChildren: 0.1,
+          }}
+          style={{
+            willChange: "transform",
           }}
         >
           <KeyboardArrowDown className="text-3xl! lg:text-6xl!" />
@@ -130,6 +135,7 @@ export const Hero = ({ isClient, messages }: SectionProps) => {
         desktopUrl="/images/hero-desktop.webp"
         mobileUrl="/images/hero-mobile.webp"
         alt={messages["hero.bg.alt"]}
+        priority={true}
       />
       <div className="overlay backdrop-saturate-120 backdrop-brightness-90 -z-1"></div>
     </section>

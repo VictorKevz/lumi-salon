@@ -5,35 +5,45 @@ import dynamic from "next/dynamic";
 import { Messages } from "@/lib/header";
 
 type Params = {
-  params: Promise<{ locale: string }>;
+  params: { locale?: string };
 };
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
-  const { locale } = await params;
-  const t = locale === "fi" ? fi : en;
 
+function isPromise<T>(value: T | Promise<T>): value is Promise<T> {
+  return typeof value === "object" && value !== null && "then" in value;
+}
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const resolvedParams = isPromise(params) ? await params : params;
+  const locale = resolvedParams.locale || "fi";
+  const t = locale === "fi" ? fi : en;
   return {
     title: `${t["hero.title"]} | Lumi Salon`,
     description: t["hero.subtitle"],
     openGraph: {
       title: `${t["hero.title"]} | Lumi Salon`,
       description: t["hero.subtitle"],
-      url: `https://lumisalo.fi/${locale}`,
+      url: `https://lumisalon.fi/${locale}`,
       siteName: "Lumi Salon",
       locale: locale,
       type: "website",
     },
   };
 }
-const HomeClient = dynamic(() => import("./HomeClient"), { ssr: true });
 
-export default async function Home({ params }: Params) {
-  const { locale } = await params;
+// Import the client component with SSR enabled for SEO benefits
+const HomeClient = dynamic(() => import("./HomeClient"), {
+  ssr: true,
+  loading: () => (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="sr-only">Loading Lumi Salon website...</div>
+    </div>
+  ),
+});
+
+export default async function Page({ params }: Params) {
+  const resolvedParams = isPromise(params) ? await params : params;
+  const locale = resolvedParams?.locale || "fi";
   const messages: Messages =
     locale === "fi" ? (fi as Messages) : (en as Messages);
-
-  return (
-    <>
-      <HomeClient messages={messages} />
-    </>
-  );
+  return <HomeClient messages={messages} />;
 }

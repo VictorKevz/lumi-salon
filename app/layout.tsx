@@ -2,13 +2,9 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lumisalon.fi"),
-  title: {
-    template: "%s | Lumi Salon",
-    default: "Lumi Salon - Professional Hair Salon in Oulu",
-  },
+  title: "Lumi Salon - Professional Hair Salon in Oulu",
   description:
-    "Professional hair styling and beauty services in Oulu, Finland. Expert cuts, coloring, and beauty treatments.",
+    "Professional hair styling and beauty services in Oulu, Finland. Ammattimaiset hiustenmuotoilu- ja kauneuspalvelut Oulussa.",
   keywords: [
     "hair salon",
     "beauty salon",
@@ -16,43 +12,65 @@ export const metadata: Metadata = {
     "hairdresser",
     "hair styling",
     "beauty services",
+    "kampaamo",
+    "kauneussalonki",
+    "hiustenmuotoilu",
+    "kauneuspalvelut",
   ],
-  authors: [{ name: "Lumi Salo" }],
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    icon: "/favicon.ico",
-  },
-  verification: {
-    google: "google-site-verification-code",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  authors: [{ name: "Lumi Salon" }],
+  formatDetection: { email: false, address: false, telephone: false },
+  icons: { icon: "/favicon.ico" },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="fi" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-        </style> */}
-        <style>
-          @import
-          url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
-        </style>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
+        <link
+          rel="preload"
+          href="/images/hero-mobile.webp"
+          as="image"
+          type="image/webp"
+          media="(max-width: 1023px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/images/hero-desktop.webp"
+          as="image"
+          type="image/webp"
+          media="(min-width: 1024px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="style"
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <noscript>
+          <link
+            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Titillium+Web:wght@400;600;700&display=swap"
+            rel="stylesheet"
+          />
+        </noscript>
       </head>
       <body className="antialiased preload">{children}</body>
     </html>

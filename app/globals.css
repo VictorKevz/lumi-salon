@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --neutral-0: #ffffff; /* pure white */
+  --neutral-0: #ffffff;
   --neutral-1: #f9f9f9;
   --neutral-2: #f2f2f2;
   --neutral-3: #e6e6e6;
@@ -47,6 +47,35 @@
 }
 * {
   font-family: "Titillium Web", sans-serif;
+}
+
+/* Performance optimizations */
+.content-visibility-auto {
+  content-visibility: auto;
+}
+
+/* Optimize animations */
+.optimize-animation {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Lazy load images */
+.lazy-image {
+  transition: opacity 0.3s ease;
+}
+
+/* Optimize hero transitions */
+.loaded .hero-element {
+  transition-duration: 0.3s !important;
+}
+
+/* Critical performance optimizations */
+body.preload * {
+  animation-duration: 0.0001s !important;
+  animation-delay: 0.0001s !important;
+  transition-duration: 0.0001s !important;
 }
 body.preload {
   opacity: 0;

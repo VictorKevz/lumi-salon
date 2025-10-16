@@ -1,54 +1,22 @@
-import React from "react";
-import type { Metadata } from "next";
+import Head from "next/head";
 
-interface LocaleLayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-
-  const description =
-    locale === "fi"
-      ? "Ammattilaistasoista hiustenleikkausta ja kauneudenhoitoa Oulussa. Leikkaukset, värjäykset ja kauneuspalvelut."
-      : "Professional hair styling and beauty services in Oulu, Finland. Expert cuts, coloring, and beauty treatments.";
-
-  const alternates = {
-    languages: {
-      en: "/en",
-      fi: "/fi",
-    },
-  };
-
-  return {
-    description,
-    alternates,
-    openGraph: {
-      title:
-        locale === "fi"
-          ? "Lumi Salo - Kampaamo Oulussa"
-          : "Lumi Salo - Hair Salon in Oulu",
-      description,
-      locale,
-      alternateLocale: locale === "fi" ? "en" : "fi",
-    },
-  };
-}
-
-export default async function LocaleLayout({
+export default function LocaleLayout({
   children,
-  params,
-}: LocaleLayoutProps) {
-  const { locale } = await params;
-
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div lang={locale} className="min-h-screen">
+    <>
+      <Head>
+        <link rel="alternate" href="https://lumisalon.fi/fi" hrefLang="fi" />
+        <link rel="alternate" href="https://lumisalon.fi/en" hrefLang="en" />
+        <link
+          rel="alternate"
+          href="https://lumisalon.fi/fi"
+          hrefLang="x-default"
+        />
+      </Head>
       {children}
-    </div>
+    </>
   );
 }

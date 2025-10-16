@@ -75,7 +75,7 @@ export const Services = ({ messages, isClient }: SectionProps) => {
         <p>{messages["services.intro"]}</p>
       </AnimationWrapper>
       <div className="max-w-screen-xl w-full grid md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-10 mt-20">
-        {services.map((service, i) => (
+        {services.map((service) => (
           <AnimationWrapper
             key={service.id}
             as={motion.article}
