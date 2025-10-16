@@ -1,101 +1,85 @@
 "use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
 import { Messages } from "@/lib/header";
-import dynamic from "next/dynamic";
 
-const Services = dynamic(
-  () =>
-    import("../sections/services/Services").then((mod) => ({
-      default: mod.Services,
-    })),
-  {
-    ssr: true,
-    loading: () => (
-      <div
-        aria-live="polite"
-        className="min-h-[30vh] flex items-center justify-center"
-      >
-        <span className="sr-only">Loading services section</span>
-        <div className="animate-pulse bg-gray-500 rounded-md w-full max-w-3xl h-24"></div>
-      </div>
-    ),
-  }
+const Services = lazy(() =>
+  import("../sections/services/Services").then((mod) => ({
+    default: mod.Services,
+  }))
+);
+const Pricing = lazy(() =>
+  import("../sections/pricing/Pricing").then((mod) => ({
+    default: mod.Pricing,
+  }))
+);
+const About = lazy(() =>
+  import("../sections/about/About").then((mod) => ({ default: mod.About }))
 );
 
-const Pricing = dynamic(
-  () =>
-    import("../sections/pricing/Pricing").then((mod) => ({
-      default: mod.Pricing,
-    })),
-  {
-    ssr: true,
-    loading: () => (
-      <div
-        aria-live="polite"
-        className="min-h-[30vh] flex items-center justify-center"
-      >
-        <span className="sr-only">Loading pricing section</span>
-        <div className="animate-pulse bg-gray-200 rounded-md w-full max-w-3xl h-24"></div>
-      </div>
-    ),
-  }
+const SectionLoading = () => (
+  <div className="min-h-[30vh] w-full animate-pulse bg-neutral-100 rounded-md" />
 );
 
 export default function HomeClient({ messages }: { messages: Messages }) {
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true);
-
-    const timer = setTimeout(() => {
-      document.body.classList.remove("preload");
-      document.body.classList.add("loaded");
-    }, 100);
-
-    const enhancePerformance = () => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { rootMargin: "100px" }
-      );
-
-      document.querySelectorAll(".lazy-load-section").forEach((el) => {
-        observer.observe(el);
-      });
-    };
-
-    enhancePerformance();
-
-    return () => clearTimeout(timer);
+    document.body.classList.remove("preload");
+    document.body.classList.add("loaded");
   }, []);
 
   return (
     <>
-      <Header isClient={isClient} messages={messages} />
+      <Header messages={messages} />
       <main className="w-full">
-        <Hero isClient={isClient} messages={messages} />
+        <Hero messages={messages} />
 
-        <div className="lazy-load-section">
-          <Suspense
-            fallback={
-              <div className="min-h-[30vh] flex items-center justify-center">
-                <div className="animate-pulse bg-gray-900 rounded-md w-full max-w-3xl h-24"></div>
-              </div>
-            }
-          >
-            <Services isClient={isClient} messages={messages} />
-            <Pricing isClient={isClient} messages={messages} />
+        <LazySection>
+          <Suspense fallback={<SectionLoading />}>
+            <Services messages={messages} />
           </Suspense>
-        </div>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionLoading />}>
+            <Pricing messages={messages} />
+          </Suspense>
+        </LazySection>
+
+        <LazySection>
+          <Suspense fallback={<SectionLoading />}>
+            <About messages={messages} />
+          </Suspense>
+        </LazySection>
       </main>
     </>
+  );
+}
+
+function LazySection({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { rootMargin: "150px" }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
+  }, []);
+
+  return (
+    <div ref={ref} className="w-full">
+      {isVisible ? children : null}
+    </div>
   );
 }

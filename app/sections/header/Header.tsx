@@ -2,13 +2,7 @@
 import { Menu } from "@mui/icons-material";
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
-import {
-  getContacts,
-  getNavLinks,
-  socials,
-  Messages,
-  iconMap,
-} from "@/lib/header";
+import { getContacts, getNavLinks, iconMap, SectionProps } from "@/lib/header";
 import { MobileMenu } from "./MobileMenu";
 import { SocialsList } from "@/app/components/SocialsList";
 import { LanguageSwitcher } from "@/app/components/LanguageSwitcher";
@@ -16,83 +10,16 @@ import { Logo } from "@/app/components/Logo";
 import { motion, AnimatePresence } from "framer-motion";
 import { SlideInVariants } from "@/app/variants";
 
-type HeaderProps = { isClient: boolean; messages: Messages };
-
-export const Header = ({ isClient, messages }: HeaderProps) => {
-  const contacts = getContacts(messages);
-  const navLinks = getNavLinks(messages);
-
-  if (!isClient) {
-    return (
-      <header role="banner">
-        <nav aria-label="Main navigation">
-          <div>
-            <h1 className="sr-only">
-              {messages["nav.brand"]} - Main Navigation
-            </h1>
-          </div>
-          <ul>
-            {navLinks.map((l) => (
-              <li key={l.id}>
-                <Link href={l.href} aria-label={l.label}>
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link
-                href={`tel:${(messages["header.banner.phone"] || "").replace(
-                  /\s/g,
-                  ""
-                )}`}
-                aria-label={messages["header.cta.call"]}
-              >
-                {messages["header.cta.call"]}
-              </Link>
-            </li>
-            <li>
-              <LanguageSwitcher messages={messages} />
-            </li>
-          </ul>
-        </nav>
-        <div>
-          <ul aria-label="Contact information">
-            {contacts.map((c) => (
-              <li key={c.type}>
-                {c.href ? (
-                  <Link href={c.href} aria-label={c.label}>
-                    {c.label}
-                  </Link>
-                ) : (
-                  <span>{c.label}</span>
-                )}
-              </li>
-            ))}
-          </ul>
-          <ul aria-label="Social media links">
-            <li>{messages["header.banner.follow"]}</li>
-            {socials.map((s) => (
-              <li key={s.id}>
-                <Link href={s.href} aria-label={s.label}>
-                  {s.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </header>
-    );
-  }
-
+export const Header = ({ messages }: SectionProps) => {
   return (
     <header className="w-full sticky top-0 z-50">
-      <Banner isClient={isClient} messages={messages} />
-      <Navbar isClient={isClient} messages={messages} />
+      <Banner messages={messages} />
+      <Navbar messages={messages} />
     </header>
   );
 };
 
-export const Banner = ({ messages }: HeaderProps) => {
+export const Banner = ({ messages }: SectionProps) => {
   const contacts = getContacts(messages);
 
   return (
@@ -146,7 +73,7 @@ export const Banner = ({ messages }: HeaderProps) => {
   );
 };
 
-export const Navbar = ({ messages }: HeaderProps) => {
+export const Navbar = ({ messages }: SectionProps) => {
   const navLinks = getNavLinks(messages);
   const [isOpen, setOpen] = useState<boolean>(false);
   const toggleMenu = useCallback(() => {

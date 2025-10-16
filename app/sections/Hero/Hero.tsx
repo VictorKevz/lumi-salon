@@ -1,72 +1,20 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import React, { useState } from "react";
+import React from "react";
 import { PictureBg } from "@/app/components/PictureBg";
 import { CTALink } from "@/app/components/CTALink";
 import { formatPhoneNumber } from "@/lib/format";
-import {
-  ArrowDownward,
-  Call,
-  KeyboardArrowDown,
-  Message,
-} from "@mui/icons-material";
+import { Call, KeyboardArrowDown, Message } from "@mui/icons-material";
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { SectionProps } from "@/lib/header";
 import { useLCPComplete } from "@/app/hooks/useLCPComplete";
 
-export const Hero = ({ isClient, messages }: SectionProps) => {
+export const Hero = ({ messages }: SectionProps) => {
   const lcpComplete = useLCPComplete();
 
-  const shouldAnimate = isClient && lcpComplete;
+  const shouldAnimate = lcpComplete;
 
-  if (!isClient) {
-    return (
-      <section
-        id="home"
-        aria-label="hero section"
-        className="center flex-col! items-start! w-full min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
-      >
-        <div className="center max-w-screen-md w-full h-full flex-col! px-4 py-8 backdrop-blur-[0.08rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-lg">
-          <header className="w-full">
-            <h1 className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl">
-              {messages["hero.title"]}
-            </h1>
-            <p className="max-w-xl !text-[var(--text-primary)]">
-              {messages["hero.subtitle"]}
-            </p>
-          </header>
-          <div className="w-full max-w-md flex flex-col sm:flex-row gap-4 mt-6">
-            <CTALink
-              href={`tel:${formatPhoneNumber(messages["phone"])}`}
-              variant="fill"
-              Icon={Call}
-            >
-              {messages["header.cta.call"]}
-            </CTALink>
-            <CTALink href="#contact" variant="outline" Icon={Message}>
-              {messages["contact.title"]}
-            </CTALink>
-          </div>
-        </div>
-        <Link
-          href={"#services"}
-          className="center w-12 h-12 absolute bottom-4 rounded-full backdrop-blur-2xl border-2 border-[var(--border-dark)] text-[var(--neutral-6)]"
-        >
-          <span className="sr-only">{messages["cta.services"]}</span>
-          <span aria-hidden="true">
-            <ArrowDownward fontSize="large" />
-          </span>
-        </Link>
-        <PictureBg
-          desktopUrl="/images/hero-desktop.webp"
-          mobileUrl="/images/hero-mobile.webp"
-          alt={messages["hero.bg.alt"]}
-        />
-        <div className="gradient-overlay backdrop-blur-[3px] lg:backdrop-blur-none backdrop-saturate-150 backdrop-brightness-50 -z-1"></div>
-      </section>
-    );
-  }
   return (
     <section
       id="home"

@@ -18,7 +18,6 @@ export type MuiIcon = OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
 
 export type Messages = Record<string, string>;
 export type SectionProps = {
-  isClient: boolean;
   messages: Messages;
 };
 export type Contact = {

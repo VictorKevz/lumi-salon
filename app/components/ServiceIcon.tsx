@@ -10,7 +10,7 @@ export const ServiceIcon = ({ url, hide = true }: ServiceIconProps) => {
     <span
       className={`${
         hide ? "hidden! md:flex! items-center justify-center" : "center"
-      } w-20 h-20 rounded-full shadow-2xl bg-[var(--primary-4)]`}
+      } w-20 h-20 rounded-full shadow-sm bg-[var(--primary-4)]`}
       role="presentation"
     >
       <Image
