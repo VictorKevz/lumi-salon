@@ -60,11 +60,11 @@ export function getNavLinks(messages: Messages): NavLink[] {
   return [
     { id: "home", href: "#home", label: messages["nav.menu.home"] },
     { id: "services", href: "#services", label: messages["nav.menu.services"] },
-    { id: "gallery", href: "#gallery", label: messages["nav.menu.gallery"] },
+    { id: "pricing", href: "#pricing", label: messages["nav.menu.pricing"] },
     {
-      id: "testimonials",
-      href: "#testimonials",
-      label: messages["nav.menu.testimonials"],
+      id: "about",
+      href: "#about",
+      label: messages["nav.menu.about"],
     },
     { id: "contact", href: "#contact", label: messages["nav.menu.contact"] },
   ];

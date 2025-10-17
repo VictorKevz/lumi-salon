@@ -15,14 +15,15 @@ export const Pricing = ({ messages }: SectionProps) => {
 
   return (
     <section
-      className="center flex-col! w-full relative py-20 sm:px-4 lg:px-8 z-5"
+      id="pricing"
+      className="center flex-col! w-full relative pt-10 sm:py-20 sm:px-4 lg:px-8 z-5"
       aria-labelledby="pricing-heading"
     >
       <AnimationWrapper
         as={motion.header}
         animate={false}
         offset={-10}
-        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)]  border border-[var(--glass-border)] rounded-t-4xl sm:rounded-lg"
+        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
       >
         <h2 id="pricing-heading">{messages["pricing.heading"]}</h2>
         <p className="text-[var(--text-primary)]! font-semibold">
