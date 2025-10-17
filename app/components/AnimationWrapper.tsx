@@ -10,6 +10,7 @@ type AnimationWrapperProps = {
   offset?: number;
   as?:
     | typeof motion.div
+    | typeof motion.figure
     | typeof motion.li
     | typeof motion.header
     | typeof motion.article

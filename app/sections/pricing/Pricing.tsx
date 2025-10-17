@@ -23,7 +23,7 @@ export const Pricing = ({ messages }: SectionProps) => {
         as={motion.header}
         animate={false}
         offset={-10}
-        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[0.2rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
+        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
       >
         <h2 id="pricing-heading">{messages["pricing.heading"]}</h2>
         <p className="text-[var(--text-primary)]! font-semibold">
@@ -104,7 +104,9 @@ export const Pricing = ({ messages }: SectionProps) => {
                       <h3 className="font-bold text-[var(--text-primary)]">
                         {option.title}
                       </h3>
-                      <p className="text-lg!">{option.description}</p>
+                      <p className="text-lg! text-[var(--neutral-5)]! font-medium">
+                        {option.description}
+                      </p>
                     </div>
                     <span
                       className="text-[var(--primary-6)] text-3xl font-bold"
@@ -125,7 +127,7 @@ export const Pricing = ({ messages }: SectionProps) => {
         mobileUrl="/images/pricing-mobile.webp"
         alt={messages["hero.bg.alt"]}
       />
-      <div className="overlay backdrop-blur-[0.1rem] backdrop-saturate-150 backdrop-brightness-90 -z-1"></div>
+      <div className="overlay backdrop-blur-[0.4rem] backdrop-saturate-150 backdrop-brightness-90 -z-1 opacity-70"></div>
     </section>
   );
 };
