@@ -1,4 +1,5 @@
-import { Variants } from "framer-motion";
+import { Target, Transition, Variants } from "framer-motion";
+
 export const SlideInVariants = (
   xOffset: string = "100%",
   delay: number = 0
@@ -33,24 +34,17 @@ export const FadeInVariants = (
   delay: number = 0,
   xOffset: number = 0
 ): Variants => {
-  const hiddenState: any = { opacity: 0 };
-  const visibleState: any = {
-    opacity: 1,
-    transition: { duration: 0.4, type: "tween", delay },
-  };
-
-  if (yOffset !== 0) {
-    hiddenState.y = yOffset;
-    visibleState.y = 0;
-  }
-
-  if (xOffset !== 0) {
-    hiddenState.x = xOffset;
-    visibleState.x = 0;
-  }
-
   return {
-    hidden: hiddenState,
-    visible: visibleState,
+    hidden: {
+      opacity: 0,
+      ...(yOffset !== 0 && { y: yOffset }),
+      ...(xOffset !== 0 && { x: xOffset }),
+    },
+    visible: {
+      opacity: 1,
+      ...(yOffset !== 0 && { y: 0 }),
+      ...(xOffset !== 0 && { x: 0 }),
+      transition: { duration: 0.4, type: "tween", delay },
+    },
   };
 };

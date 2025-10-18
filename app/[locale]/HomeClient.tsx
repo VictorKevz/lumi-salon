@@ -71,9 +71,12 @@ function LazySection({ children }: { children: React.ReactNode }) {
       { rootMargin: "150px" }
     );
 
-    if (ref.current) observer.observe(ref.current);
+    // Save a reference to the current value of ref.current
+    const currentRef = ref.current;
+
+    if (currentRef) observer.observe(currentRef);
     return () => {
-      if (ref.current) observer.unobserve(ref.current);
+      if (currentRef) observer.unobserve(currentRef);
     };
   }, []);
 
