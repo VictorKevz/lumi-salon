@@ -4,6 +4,7 @@ import { SectionProps } from "@/lib/header";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import React from "react";
+import CountUp from "react-countup";
 
 export const About = ({ messages }: SectionProps) => {
   const aboutValuesData = getAboutValues(messages);
@@ -22,7 +23,7 @@ export const About = ({ messages }: SectionProps) => {
       <AnimationWrapper
         as={motion.header}
         className="max-w-4xl w-full center flex-col! text-center"
-        animate={false}
+        animate={true}
         offset={-10}
       >
         <h2>{messages["about.title"]}</h2>
@@ -31,7 +32,7 @@ export const About = ({ messages }: SectionProps) => {
       <div className="grid lg:grid-cols-3 gap-10 max-w-screen-xl w-full mt-12 sm:px-4 2xl:px-0">
         <AnimationWrapper
           as={motion.figure}
-          animate={false}
+          animate={true}
           offset={-20}
           className="relative"
         >
@@ -47,19 +48,33 @@ export const About = ({ messages }: SectionProps) => {
             {messages["about.fig.alt"]}
           </figcaption>
         </AnimationWrapper>
-        <div className="center flex-col! justify-center w-full bg-[var(--primary-3)] lg:col-span-2 px-4 pt-6 pb-4 rounded-t-4xl sm:rounded-xl text-center">
-          <h3 className="text-3xl md:text-4xl font-bold">
-            {messages["about.why.title"]}
-          </h3>
-          <p>{messages["about.why.intro"]}</p>
+        <article className="center flex-col! justify-center w-full bg-[var(--primary-3)] lg:col-span-2 px-4 pt-6 pb-4 rounded-t-4xl sm:rounded-xl text-center">
+          <AnimationWrapper
+            as={motion.header}
+            animate={true}
+            xOffset={20}
+            delay={0.15}
+            className="center flex-col text-center"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold">
+              {messages["about.why.title"]}
+            </h3>
+            <p>{messages["about.why.intro"]}</p>
+          </AnimationWrapper>
           <ul className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-4 mt-12">
-            {aboutValuesData.map((value) => {
+            {aboutValuesData.map((value, i) => {
               return (
                 <li
                   key={value.id}
                   className="w-full sm:last:col-span-2 lg:last:col-span-1"
                 >
-                  <article className="center flex-col! w-full h-full px-3.5 py-3 bg-[var(--primary-1)] rounded-lg shadow-sm">
+                  <AnimationWrapper
+                    as={motion.article}
+                    animate={true}
+                    xOffset={20}
+                    delay={0.01 * i}
+                    className="center flex-col! w-full h-full px-3.5 py-3 bg-[var(--primary-1)] rounded-lg shadow-sm"
+                  >
                     <span
                       className={`center w-12 h-12 rounded-full text-[var(--neutral-0)]`}
                       style={{
@@ -70,14 +85,14 @@ export const About = ({ messages }: SectionProps) => {
                     </span>
                     <h3 className="text-lg font-bold mt-2">{value.title}</h3>
                     <p className="text-base!">{value.description}</p>
-                  </article>
+                  </AnimationWrapper>
                 </li>
               );
             })}
           </ul>
-        </div>
+        </article>
       </div>
-      <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
+      <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] border-t-8 border-t-[var(--primary-3)] sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
         {statsData.map((stat) => (
           <div key={stat.id} className="center flex-col">
             <dt className="text-base font-bold text-[var(--neutral-2)]">
@@ -88,7 +103,12 @@ export const About = ({ messages }: SectionProps) => {
               style={{ color: `var(--${colorVars[stat.id]})` }}
               aria-live="polite"
             >
-              {stat.value}
+              <CountUp
+                end={Number(stat.value)}
+                duration={2.5}
+                enableScrollSpy
+                scrollSpyOnce
+              />
             </dd>
           </div>
         ))}

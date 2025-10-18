@@ -34,7 +34,7 @@ export function getAboutValues(messages: Messages): AboutValue[] {
 export interface AboutStat {
   id: string;
   label: string;
-  value: string;
+  value: number;
 }
 
 export function getAboutStats(messages: Messages): AboutStat[] {
@@ -42,17 +42,17 @@ export function getAboutStats(messages: Messages): AboutStat[] {
     {
       id: "quality",
       label: messages["about.stats.clients.label"],
-      value: messages["about.stats.clients.value"],
+      value: Number(messages["about.stats.clients.value"]),
     },
     {
       id: "care",
       label: messages["about.stats.awards.label"],
-      value: messages["about.stats.awards.value"],
+      value: Number(messages["about.stats.awards.value"]),
     },
     {
       id: "experience",
       label: messages["about.stats.years.label"],
-      value: messages["about.stats.years.value"],
+      value: Number(messages["about.stats.years.value"]),
     },
   ];
 }

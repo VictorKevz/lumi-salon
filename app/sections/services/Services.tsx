@@ -19,7 +19,7 @@ export const Services = ({ messages }: SectionProps) => {
       <AnimationWrapper
         as={motion.header}
         className="max-w-4xl w-full center flex-col! text-center"
-        animate={false}
+        animate={true}
         offset={10}
       >
         <h2>{messages["services.title"]}</h2>
@@ -30,7 +30,7 @@ export const Services = ({ messages }: SectionProps) => {
           <AnimationWrapper
             key={service.id}
             as={motion.article}
-            animate={false}
+            animate={true}
             offset={-10}
             className="between flex-col! w-full h-full bg-[var(--primary-2)] rounded-lg shadow-2xl shadow-black/20"
           >

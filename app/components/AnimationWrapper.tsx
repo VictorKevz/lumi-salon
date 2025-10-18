@@ -1,5 +1,4 @@
 "use client";
-
 import { FadeInVariants } from "@/app/variants";
 import { motion, Variants } from "framer-motion";
 import React from "react";
@@ -8,17 +7,10 @@ type AnimationWrapperProps = {
   children: React.ReactNode;
   delay?: number;
   offset?: number;
-  as?:
-    | typeof motion.div
-    | typeof motion.figure
-    | typeof motion.li
-    | typeof motion.header
-    | typeof motion.article
-    | typeof motion.section
-    | typeof motion.h1
-    | typeof motion.p;
+  xOffset?: number;
+  as?: React.ElementType;
   className?: string;
-  variantsFn?: (offset: number, delay: number) => Variants;
+  variantsFn?: (offset: number, delay: number, xOffset: number) => Variants;
   animate?: boolean;
   viewport?: {
     once: boolean;
@@ -30,20 +22,38 @@ export const AnimationWrapper = ({
   children,
   delay = 0,
   offset = 0,
+  xOffset = 0,
   as: Component = motion.div,
   className,
-  variantsFn = (offset: number, delay: number) => FadeInVariants(offset, delay),
-  animate = true,
-  viewport = { once: true, amount: 0.2 },
-}: AnimationWrapperProps) => (
-  <Component
-    variants={variantsFn(offset, delay)}
-    initial="hidden"
-    {...(animate
-      ? { animate: "visible" }
-      : { whileInView: "visible", viewport })}
-    className={className}
-  >
-    {children}
-  </Component>
+  variantsFn = (offset: number, delay: number, xOffset: number) =>
+    FadeInVariants(offset, delay, xOffset),
+  animate: triggerOnView = true,
+  viewport = { once: false, amount: 0.3 },
+}: AnimationWrapperProps) => {
+  const motionProps = triggerOnView
+    ? { whileInView: "visible", viewport }
+    : { animate: "visible" };
+
+  return (
+    <Component
+      variants={variantsFn(offset, delay, xOffset)}
+      initial="hidden"
+      {...motionProps}
+      className={className}
+    >
+      {children}
+    </Component>
+  );
+};
+
+export const FadeInSection = (props: Omit<AnimationWrapperProps, "as">) => (
+  <AnimationWrapper as={motion.section} {...props} />
+);
+
+export const FadeInHeader = (props: Omit<AnimationWrapperProps, "as">) => (
+  <AnimationWrapper as={motion.header} {...props} />
+);
+
+export const FadeInFigure = (props: Omit<AnimationWrapperProps, "as">) => (
+  <AnimationWrapper as={motion.figure} {...props} />
 );

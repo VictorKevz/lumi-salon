@@ -21,7 +21,7 @@ export const Pricing = ({ messages }: SectionProps) => {
     >
       <AnimationWrapper
         as={motion.header}
-        animate={false}
+        animate={true}
         offset={-10}
         className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
       >
@@ -33,7 +33,7 @@ export const Pricing = ({ messages }: SectionProps) => {
 
       <AnimationWrapper
         offset={-10}
-        animate={false}
+        animate={true}
         className="center flex-col! max-w-screen-xl w-full mt-10 px-4 lg:px-6 py-8 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-lg"
         aria-live="polite"
       >
@@ -49,7 +49,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                   key={tab.id}
                   as={motion.li}
                   offset={-10}
-                  animate={false}
+                  animate={true}
                   className="w-full"
                 >
                   <button
@@ -90,7 +90,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                   <AnimationWrapper
                     as={motion.article}
                     offset={-10}
-                    animate={false}
+                    animate={true}
                     className="w-full relative between backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
                   >
                     <div>
