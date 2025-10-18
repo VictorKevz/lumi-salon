@@ -20,18 +20,19 @@ export const Services = ({ messages }: SectionProps) => {
         as={motion.header}
         className="max-w-4xl w-full center flex-col! text-center"
         animate={true}
-        offset={10}
+        offset={30}
       >
         <h2>{messages["services.title"]}</h2>
         <p>{messages["services.intro"]}</p>
       </AnimationWrapper>
       <div className="max-w-screen-xl w-full grid md:grid-cols-2 lg:grid-cols-3 gap-y-20 gap-x-10 mt-20">
-        {services.map((service) => (
+        {services.map((service, i) => (
           <AnimationWrapper
             key={service.id}
             as={motion.article}
             animate={true}
-            offset={-10}
+            offset={-20}
+            delay={0.05 * i}
             className="between flex-col! w-full h-full bg-[var(--primary-2)] rounded-lg shadow-2xl shadow-black/20"
           >
             <span className="-mt-10">
@@ -60,12 +61,19 @@ export const Services = ({ messages }: SectionProps) => {
         role="complementary"
         aria-labelledby="custom-services"
       >
-        <p className="my-4">{messages["services.custom"]}</p>
-        <div className="max-w-xs w-full">
+        <AnimationWrapper
+          as={motion.p}
+          xOffset={30}
+          delay={0.05}
+          className="my-4"
+        >
+          {messages["services.custom"]}
+        </AnimationWrapper>
+        <AnimationWrapper delay={0.15} xOffset={30} className="max-w-xs w-full">
           <CTALink href="#contact" variant="fill" Icon={Message}>
             {messages["contact.title"]}
           </CTALink>
-        </div>
+        </AnimationWrapper>
       </div>
     </section>
   );

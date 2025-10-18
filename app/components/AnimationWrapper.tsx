@@ -28,7 +28,7 @@ export const AnimationWrapper = ({
   variantsFn = (offset: number, delay: number, xOffset: number) =>
     FadeInVariants(offset, delay, xOffset),
   animate: triggerOnView = true,
-  viewport = { once: false, amount: 0.3 },
+  viewport = { once: true, amount: 0.25 },
 }: AnimationWrapperProps) => {
   const motionProps = triggerOnView
     ? { whileInView: "visible", viewport }

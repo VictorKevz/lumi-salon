@@ -22,7 +22,7 @@ export const Pricing = ({ messages }: SectionProps) => {
       <AnimationWrapper
         as={motion.header}
         animate={true}
-        offset={-10}
+        offset={-30}
         className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
       >
         <h2 id="pricing-heading">{messages["pricing.heading"]}</h2>

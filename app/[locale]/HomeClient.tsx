@@ -31,7 +31,7 @@ export default function HomeClient({ messages }: { messages: Messages }) {
   return (
     <>
       <Header messages={messages} />
-      <main className="w-full">
+      <main className="w-full overflow-x-hidden">
         <Hero messages={messages} />
 
         <LazySection>

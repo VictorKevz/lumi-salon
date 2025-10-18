@@ -30,7 +30,7 @@ export const Hero = ({ messages }: SectionProps) => {
           <AnimationWrapper
             as={motion.h1}
             delay={0.1}
-            offset={10}
+            offset={20}
             animate={shouldAnimate}
             className="text-3xl lg:text-6xl text-[var(--text-primary)] max-w-2xl"
           >
@@ -47,7 +47,7 @@ export const Hero = ({ messages }: SectionProps) => {
           </AnimationWrapper>
         </header>
         <AnimationWrapper
-          offset={10}
+          xOffset={40}
           delay={0.3}
           animate={shouldAnimate}
           className="w-full max-w-md flex flex-col sm:flex-row gap-4 mt-6"
@@ -84,9 +84,6 @@ export const Hero = ({ messages }: SectionProps) => {
             ease: "easeInOut",
             type: "tween",
             staggerChildren: 0.1,
-          }}
-          style={{
-            willChange: "transform",
           }}
         >
           <KeyboardArrowDown className="text-3xl! lg:text-6xl!" />
