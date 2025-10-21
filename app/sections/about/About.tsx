@@ -18,7 +18,7 @@ export const About = ({ messages }: SectionProps) => {
   return (
     <section
       id="about"
-      className="center flex-col! w-full relative bg-[var(--primary-1)] pt-20 z-5 border"
+      className="center flex-col! w-full relative bg-[var(--primary-1)] pt-20 z-5"
     >
       <AnimationWrapper
         as={motion.header}
