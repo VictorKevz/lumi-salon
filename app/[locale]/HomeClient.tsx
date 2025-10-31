@@ -4,6 +4,7 @@ import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
 import { Messages } from "@/lib/header";
 import { Contact } from "../sections/contact/Contact";
+import { Footer } from "../sections/footer/Footer";
 
 const Services = lazy(() =>
   import("../sections/services/Services").then((mod) => ({
@@ -47,13 +48,19 @@ export default function HomeClient({ messages }: { messages: Messages }) {
           </Suspense>
         </LazySection>
         <LazySection>
+          <LazySection>
+            <Suspense fallback={<SectionLoading />}>
+              <Contact messages={messages} />
+            </Suspense>
+          </LazySection>
           <Suspense fallback={<SectionLoading />}>
             <About messages={messages} />
           </Suspense>
         </LazySection>
+
         <LazySection>
           <Suspense fallback={<SectionLoading />}>
-            <Contact messages={messages} />
+            <Footer messages={messages} />
           </Suspense>
         </LazySection>
       </main>

@@ -18,11 +18,32 @@ export const About = ({ messages }: SectionProps) => {
   return (
     <section
       id="about"
-      className="center flex-col! w-full relative bg-[var(--primary-2)] pt-20 z-5"
+      className="flex flex-col items-center w-full relative bg-[var(--primary-2)] z-5 pb-30"
     >
+      <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
+        {statsData.map((stat) => (
+          <div key={stat.id} className="center flex-col">
+            <dt className="text-base font-bold text-[var(--neutral-2)]">
+              {stat.label}
+            </dt>
+            <dd
+              className="text-4xl md:text-6xl font-extrabold mt-2"
+              style={{ color: `var(--${colorVars[stat.id]})` }}
+              aria-live="polite"
+            >
+              <CountUp
+                end={Number(stat.value)}
+                duration={2.5}
+                enableScrollSpy
+                scrollSpyOnce
+              />
+            </dd>
+          </div>
+        ))}
+      </dl>
       <AnimationWrapper
         as={motion.header}
-        className="max-w-4xl w-full center flex-col! text-center"
+        className="max-w-4xl w-full center flex-col! text-center mt-10"
         animate={true}
         offset={-10}
       >
@@ -92,27 +113,6 @@ export const About = ({ messages }: SectionProps) => {
           </ul>
         </article>
       </div>
-      <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] border-t-8 border-t-[var(--primary-3)] sm:mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
-        {statsData.map((stat) => (
-          <div key={stat.id} className="center flex-col">
-            <dt className="text-base font-bold text-[var(--neutral-2)]">
-              {stat.label}
-            </dt>
-            <dd
-              className="text-4xl md:text-6xl font-extrabold mt-2"
-              style={{ color: `var(--${colorVars[stat.id]})` }}
-              aria-live="polite"
-            >
-              <CountUp
-                end={Number(stat.value)}
-                duration={2.5}
-                enableScrollSpy
-                scrollSpyOnce
-              />
-            </dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 };
