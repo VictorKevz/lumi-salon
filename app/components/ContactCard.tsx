@@ -11,7 +11,7 @@ export const ContactCard = ({ card }: ContactCardProps) => {
   const Icon = card.icon;
 
   return (
-    <article className="w-full bg-[var(--primary-3)] rounded-xl p-5 shadow-xl">
+    <article className="w-full bg-[var(--primary-3)] rounded-lg p-5 shadow-xl">
       <header className="flex items-center gap-3 mb-4">
         <span className="center w-12 h-12 rounded-full bg-[var(--neutral-6)] text-[var(--text-on-primary)]">
           <Icon />

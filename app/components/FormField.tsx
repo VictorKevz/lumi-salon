@@ -34,7 +34,7 @@ export const FormField = ({
       >
         {field.label}
         {field.required && (
-          <span className="text-[var(--error)] ml-1" aria-label="required">
+          <span className="text-[var(--error)] ml-0.5" aria-label="required">
             *
           </span>
         )}
@@ -78,7 +78,7 @@ export const FormField = ({
       {error && (
         <p
           id={`${field.name}-error`}
-          className="text-red-500 text-sm mt-1"
+          className="text-[var(--danger)]! text-sm! mt-1 font-semibold"
           role="alert"
         >
           {error}
