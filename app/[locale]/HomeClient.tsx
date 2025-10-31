@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef, lazy, Suspense } from "react";
 import { Header } from "../sections/header/Header";
 import { Hero } from "../sections/Hero/Hero";
 import { Messages } from "@/lib/header";
+import { Contact } from "../sections/contact/Contact";
 
 const Services = lazy(() =>
   import("../sections/services/Services").then((mod) => ({
@@ -45,10 +46,14 @@ export default function HomeClient({ messages }: { messages: Messages }) {
             <Pricing messages={messages} />
           </Suspense>
         </LazySection>
-
         <LazySection>
           <Suspense fallback={<SectionLoading />}>
             <About messages={messages} />
+          </Suspense>
+        </LazySection>
+        <LazySection>
+          <Suspense fallback={<SectionLoading />}>
+            <Contact messages={messages} />
           </Suspense>
         </LazySection>
       </main>

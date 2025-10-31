@@ -127,7 +127,7 @@ export const Pricing = ({ messages }: SectionProps) => {
         mobileUrl="/images/pricing-mobile.png"
         alt={messages["hero.bg.alt"]}
       />
-      <div className="overlay backdrop-blur-[0.2rem] -z-1 opacity-70"></div>
+      <div className="overlay backdrop-blur-[0.5rem] -z-1"></div>
     </section>
   );
 };
