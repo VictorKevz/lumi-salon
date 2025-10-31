@@ -106,10 +106,13 @@ p {
 }
 a,
 button,
-li {
+li,
+input,
+textarea {
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
+
 /* .......................Common classes....................... */
 .center,
 .between {

@@ -34,7 +34,7 @@ export const Pricing = ({ messages }: SectionProps) => {
       <AnimationWrapper
         offset={-10}
         animate={true}
-        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 lg:px-6 py-8 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-lg"
+        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-6 lg:p-6 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-2xl"
         aria-live="polite"
       >
         <nav className="w-full" aria-label={messages["pricing.tabs.ariaLabel"]}>
@@ -91,7 +91,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                     as={motion.article}
                     offset={-10}
                     animate={true}
-                    className="w-full relative between backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
+                    className="w-full relative between backdrop-blur-[0.1rem] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
                   >
                     <div>
                       <Image
@@ -127,7 +127,7 @@ export const Pricing = ({ messages }: SectionProps) => {
         mobileUrl="/images/pricing-mobile.webp"
         alt={messages["hero.bg.alt"]}
       />
-      <div className="overlay backdrop-blur-[0.4rem] backdrop-saturate-150 backdrop-brightness-90 -z-1 opacity-70"></div>
+      <div className="overlay backdrop-blur-[0.5rem] -z-1"></div>
     </section>
   );
 };
