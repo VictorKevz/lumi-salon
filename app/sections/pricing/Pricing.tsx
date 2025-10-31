@@ -123,8 +123,8 @@ export const Pricing = ({ messages }: SectionProps) => {
       </AnimationWrapper>
 
       <PictureBg
-        desktopUrl="/images/pricing-desktop.png"
-        mobileUrl="/images/pricing-mobile.png"
+        desktopUrl="/images/pricing-desktop.webp"
+        mobileUrl="/images/pricing-mobile.webp"
         alt={messages["hero.bg.alt"]}
       />
       <div className="overlay backdrop-blur-[0.5rem] -z-1"></div>
