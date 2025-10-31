@@ -9,7 +9,7 @@ import React from "react";
 export const Footer = ({ messages }: SectionProps) => {
   return (
     <footer className="center flex-col! w-full bg-[var(--primary-1)] px-4 2xl:px-8 py-6 z-10">
-      <div className="between flex-col! lg:flex-row! gap-6 max-w-screen-xl w-full min-h-40 bg-[var(--neutral-6)] rounded-lg -mt-[12%] z-20 px-4 py-6 shadow-md">
+      <div className="between flex-col! lg:flex-row! gap-6 max-w-screen-xl w-full min-h-40 bg-[var(--neutral-6)] rounded-lg -mt-26 z-20 px-4 py-6 shadow-md">
         <h2 className="text-[var(--primary-5)]">
           Contact Us <br /> Today
         </h2>
@@ -37,7 +37,7 @@ export const Footer = ({ messages }: SectionProps) => {
           role="list"
         >
           <li>
-            <h3 className="text-base font-semibold uppercase mb-2 lg:mb-0">
+            <h3 className="text-base font-semibold uppercase mb-2">
               Contact Info
             </h3>
           </li>
@@ -82,7 +82,7 @@ export const Footer = ({ messages }: SectionProps) => {
         </ul>
         <ul className="flex flex-col items-start mt-8 lg:mt-0">
           <li>
-            <h3 className="text-base font-semibold uppercase mb-2 lg:mb-0">
+            <h3 className="text-base font-semibold uppercase mb-2">
               Quick Links
             </h3>
           </li>

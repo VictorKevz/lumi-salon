@@ -69,7 +69,7 @@ export const About = ({ messages }: SectionProps) => {
             {messages["about.fig.alt"]}
           </figcaption>
         </AnimationWrapper>
-        <article className="between flex-col! justify-center w-full bg-[var(--primary-3)] py-6 lg:col-span-2 px-4 rounded-t-4xl sm:rounded-xl text-center">
+        <article className="between flex-col! justify-center w-full sm:bg-[var(--primary-3)] py-6 lg:col-span-2 px-4 sm:rounded-xl text-center">
           <AnimationWrapper
             as={motion.header}
             animate={true}
@@ -94,7 +94,7 @@ export const About = ({ messages }: SectionProps) => {
                     animate={true}
                     xOffset={20}
                     delay={0.01 * i}
-                    className="center flex-col! w-full h-full px-3.5 py-3 bg-[var(--primary-2)] rounded-lg shadow-sm"
+                    className="center flex-col! w-full h-full px-3.5 py-3 bg-[var(--primary-4)]  sm:bg-[var(--primary-2)] rounded-lg shadow-sm"
                   >
                     <span
                       className={`center w-12 h-12 rounded-full text-[var(--neutral-0)]`}
