@@ -8,23 +8,26 @@ import React from "react";
 
 export const Footer = ({ messages }: SectionProps) => {
   return (
-    <footer className="center flex-col! w-full bg-[var(--netral-0)] px-4 2xl:px-8 py-6 z-10">
-      <div className="between flex-col! lg:flex-row! gap-6 max-w-screen-xl w-full min-h-40 bg-[var(--neutral-6)] rounded-lg -mt-26 z-20 px-4 py-6 shadow-md">
-        <h2 className="text-[var(--primary-5)]">
-          Contact Us <br /> Today
-        </h2>
-        <div className="max-w-xs w-full">
-          <CTALink
-            href={"#contact"}
-            variant="fill"
-            Icon={Message}
-            className="bg-[var(--primary-5)] text-[var(--neutral-5)]! border-2 border-transparent hover:border-[var(--primary-5)] hover:text-[var(--primary-5)]!"
-          >
-            {messages["contact.title"]}
-          </CTALink>
+    <footer className="center flex-col! w-full bg-[var(--netral-0)] z-10">
+      <header className="center w-full min-h-40 bg-[var(--neutral-6)] px-4 py-6 2xl:px-8">
+        <div className="between w-full flex-col! lg:flex-row! gap-6">
+          <h2 className="text-[var(--primary-5)]">
+            Contact Us <br /> Today
+          </h2>
+          <div className="max-w-xs w-full">
+            <CTALink
+              href={"#contact"}
+              variant="fill"
+              Icon={Message}
+              className="bg-[var(--primary-5)] text-[var(--neutral-5)]! border-2 border-transparent hover:border-[var(--primary-5)] hover:text-[var(--primary-5)]!"
+            >
+              {messages["contact.title"]}
+            </CTALink>
+          </div>
         </div>
-      </div>
-      <div className="between w-full mt-10 flex-col! lg:flex-row! items-start!">
+      </header>
+
+      <div className="between w-full mt-10 flex-col! lg:flex-row! items-start! px-4 2xl:px-8">
         <div className="flex flex-col items-start">
           <Logo />
           <p className="text-lg! max-w-xs text-[var(--neutral-6)]!">
@@ -98,7 +101,7 @@ export const Footer = ({ messages }: SectionProps) => {
           ))}
         </ul>
       </div>
-      <div className="between flex-col! items-start! gap-2 md:flex-row! md:items-center w-full border-t-1 border-[var(--neutral-3)] mt-6 pt-4 ">
+      <div className="between flex-col! items-start! gap-2 md:flex-row! md:items-center w-full border-t-1 border-[var(--neutral-3)] mt-6 px-4 py-6 2xl:px-8">
         <SocialsList />
         <p className="text-lg!">©️Lumi. 2025</p>
         <p className="text-sm!">
