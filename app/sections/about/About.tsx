@@ -18,7 +18,7 @@ export const About = ({ messages }: SectionProps) => {
   return (
     <section
       id="about"
-      className="flex flex-col items-center w-full relative bg-[var(--primary-2)] z-5 pb-30"
+      className="flex flex-col items-center w-full relative bg-[var(--primary-1)] z-5 pb-30"
     >
       <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
         {statsData.map((stat) => (

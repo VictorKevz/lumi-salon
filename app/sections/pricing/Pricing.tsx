@@ -34,7 +34,7 @@ export const Pricing = ({ messages }: SectionProps) => {
       <AnimationWrapper
         offset={-10}
         animate={true}
-        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-6 lg:p-6 backdrop-blur-[0.8rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-2xl"
+        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-6 lg:p-6 backdrop-blur-[0.8rem] lg:shadow-xl! bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-2xl"
         aria-live="polite"
       >
         <nav className="w-full" aria-label={messages["pricing.tabs.ariaLabel"]}>
@@ -91,7 +91,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                     as={motion.article}
                     offset={-10}
                     animate={true}
-                    className="w-full relative between backdrop-blur-[0.1rem] border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
+                    className="w-full relative between backdrop-blur-[0.1rem] shadow-xl! border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
                   >
                     <div>
                       <Image
@@ -101,7 +101,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                         alt={`${option.title} illustration`}
                         className="w-14 h-14 lg:w-18 lg:h-18 object-cover rounded-full shadow-2xl border-2 border-[var(--glass-border)]"
                       />
-                      <h3 className="font-bold text-[var(--text-primary)]">
+                      <h3 className="font-bold text-[var(--text-primary)] mt-1.5">
                         {option.title}
                       </h3>
                       <p className="text-lg! text-[var(--neutral-5)]! font-medium">
@@ -122,12 +122,7 @@ export const Pricing = ({ messages }: SectionProps) => {
         ))}
       </AnimationWrapper>
 
-      <PictureBg
-        desktopUrl="/images/pricing-desktop.webp"
-        mobileUrl="/images/pricing-mobile.webp"
-        alt={messages["hero.bg.alt"]}
-      />
-      <div className="overlay backdrop-blur-[0.5rem] -z-1"></div>
+      <div className="overlay -z-1"></div>
     </section>
   );
 };

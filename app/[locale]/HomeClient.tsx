@@ -30,6 +30,47 @@ export default function HomeClient({ messages }: { messages: Messages }) {
     document.body.classList.add("loaded");
   }, []);
 
+  useEffect(() => {
+    function handleAnchorClick(e: MouseEvent) {
+      const anchor = (e.target as HTMLElement).closest("a[href^='#']");
+      if (!anchor) return;
+      const href = anchor.getAttribute("href");
+      if (!href || !href.startsWith("#")) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      const header = document.querySelector("header.sticky");
+      const offset = header ? (header as HTMLElement).offsetHeight : 0;
+      const rect = target.getBoundingClientRect();
+      const scrollTop = window.pageYOffset + rect.top - offset - 8; // 8px extra space
+      window.scrollTo({ top: scrollTop, behavior: "smooth" });
+    }
+    document.addEventListener("click", handleAnchorClick);
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement).closest("a[href^='#']");
+      if (anchor) {
+        const href = anchor.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+    };
+    document.addEventListener("click", handleAnchorClick);
+    return () => {
+      document.removeEventListener("click", handleAnchorClick);
+    };
+  }, []);
+
   return (
     <>
       <Header messages={messages} />
