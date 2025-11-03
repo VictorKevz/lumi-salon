@@ -45,7 +45,7 @@ export const Pricing = ({ messages }: SectionProps) => {
             {tabs.map((tab) => {
               const isActive = selectedTab === tab.id;
               return (
-                <li key={tab.id} className="w-full">
+                <li key={tab.id} className="w-full" role="presentation">
                   <AnimationWrapper
                     as={motion.span}
                     offset={-10}

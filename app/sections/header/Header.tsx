@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "@mui/icons-material";
+import { Call, Menu } from "@mui/icons-material";
 import Link from "next/link";
 import React, { useCallback, useState } from "react";
 import { getContacts, getNavLinks, iconMap, SectionProps } from "@/lib/header";
@@ -112,10 +112,10 @@ export const Navbar = ({ messages }: SectionProps) => {
       <div className="center gap-2">
         <Link
           href={`tel:${messages["phone"] || ""}`}
-          className="center h-10 sm:min-w-[8rem] px-2 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] font-bold rounded-lg"
+          className="center gap-2 h-10 sm:min-w-[8rem] px-2 w-full bg-[var(--neutral-6)] text-[var(--primary-3)] font-bold rounded-lg"
           aria-label={messages["header.cta.call"]}
         >
-          {messages["header.cta.call"]}
+          <Call fontSize="small" /> {messages["header.cta.call"]}
         </Link>
         <LanguageSwitcher messages={messages} />
       </div>
