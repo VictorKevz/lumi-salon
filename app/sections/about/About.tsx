@@ -20,6 +20,7 @@ export const About = ({ messages }: SectionProps) => {
       id="about"
       className="flex flex-col items-center w-full relative bg-[var(--primary-1)] z-5 pb-20"
     >
+      {/*........... Stats component........ */}
       <dl className="between flex-col! md:flex-row! w-full bg-[var(--neutral-6)] grid grid-cols-1 sm:grid-cols-3 gap-6 py-6 px-5">
         {statsData.map((stat) => (
           <div key={stat.id} className="center flex-col">

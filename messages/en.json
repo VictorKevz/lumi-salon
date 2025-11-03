@@ -213,5 +213,11 @@
     "pricing.grooming.5.price": "€12",
     "pricing.grooming.6.title": "Beard & Skin Care",
     "pricing.grooming.6.desc": "Conditioning and hydration",
-    "pricing.grooming.6.price": "€20"
+    "pricing.grooming.6.price": "€20",
+    "footer.cta.title": "Contact Us",
+    "footer.cta.subtitle": "Today",
+    "footer.contact.title": "Contact Info",
+    "footer.quicklinks.title": "Quick Links",
+    "footer.dev.by": "Developed by",
+    "pricing.tabs.ariaLabel": "Service categories"
 }

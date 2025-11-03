@@ -1,8 +1,10 @@
+import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { CTALink } from "@/app/components/CTALink";
 import { Logo } from "@/app/components/Logo";
 import { SocialsList } from "@/app/components/SocialsList";
 import { getContacts, getNavLinks, iconMap, SectionProps } from "@/lib/header";
 import { Message } from "@mui/icons-material";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import React from "react";
 
@@ -10,11 +12,22 @@ export const Footer = ({ messages }: SectionProps) => {
   return (
     <footer className="center flex-col! w-full bg-[var(--netral-0)] z-10">
       <header className="center w-full min-h-40 bg-[var(--neutral-6)] px-4 py-6 2xl:px-8">
-        <div className="between w-full flex-col! lg:flex-row! gap-6">
-          <h2 className="text-[var(--primary-5)]">
-            Contact Us <br /> Today
-          </h2>
-          <div className="max-w-xs w-full">
+        <div className="between w-full flex-col! items-start! lg:flex-row! gap-6">
+          <AnimationWrapper
+            as={motion.h2}
+            animate={true}
+            xOffset={-20}
+            className="text-[var(--primary-5)]"
+          >
+            {messages["footer.cta.title"]} <br />
+            {messages["footer.cta.subtitle"]}
+          </AnimationWrapper>
+          <AnimationWrapper
+            animate={true}
+            xOffset={20}
+            delay={0.1}
+            className="max-w-xs w-full"
+          >
             <CTALink
               href={"#contact"}
               variant="fill"
@@ -23,17 +36,21 @@ export const Footer = ({ messages }: SectionProps) => {
             >
               {messages["contact.title"]}
             </CTALink>
-          </div>
+          </AnimationWrapper>
         </div>
       </header>
 
       <div className="between w-full mt-10 flex-col! lg:flex-row! items-start! px-4 2xl:px-8">
-        <div className="flex flex-col items-start">
+        <AnimationWrapper
+          animate={true}
+          offset={30}
+          className="flex flex-col items-start"
+        >
           <Logo />
           <p className="text-lg! max-w-xs text-[var(--neutral-6)]!">
             {messages["hero.subtitle"]}
           </p>
-        </div>
+        </AnimationWrapper>
         <ul
           className="flex flex-col items-start mt-8 lg:mt-0"
           aria-label="Contact information list"
@@ -41,13 +58,20 @@ export const Footer = ({ messages }: SectionProps) => {
         >
           <li>
             <h3 className="text-base font-semibold uppercase mb-2">
-              Contact Info
+              {messages["footer.contact.title"]}
             </h3>
           </li>
-          {getContacts(messages).map((c) => {
+          {getContacts(messages).map((c, i) => {
             const Icon = iconMap[c.type];
             return (
-              <li key={c.type} className="text-sm not-last:pb-2">
+              <AnimationWrapper
+                key={c.type}
+                className="text-sm not-last:pb-2"
+                as={motion.li}
+                animate={true}
+                offset={20}
+                delay={0.03 * i}
+              >
                 {c.href ? (
                   <Link
                     href={c.href}
@@ -79,43 +103,55 @@ export const Footer = ({ messages }: SectionProps) => {
                     <span>{c.label}</span>
                   </span>
                 )}
-              </li>
+              </AnimationWrapper>
             );
           })}
         </ul>
         <ul className="flex flex-col items-start mt-8 lg:mt-0">
           <li>
             <h3 className="text-base font-semibold uppercase mb-2">
-              Quick Links
+              {messages["footer.quicklinks.title"]}
             </h3>
           </li>
-          {getNavLinks(messages).map((link) => (
-            <li key={link.id} className="not-last:pb-1">
+          {getNavLinks(messages).map((link, i) => (
+            <AnimationWrapper
+              key={link.id}
+              className="not-last:pb-1"
+              as={motion.li}
+              animate={true}
+              offset={20}
+              delay={0.03 * i}
+            >
               <Link
                 href={link.href}
                 className="hover:text-[var(--primary-6)] hover:translate-y-1 hover:scale-105"
               >
                 {link.label}
               </Link>
-            </li>
+            </AnimationWrapper>
           ))}
         </ul>
       </div>
-      <div className="between flex-col! items-start! gap-2 md:flex-row! md:items-center w-full border-t-1 border-[var(--neutral-3)] mt-6 px-4 py-6 2xl:px-8">
+      <AnimationWrapper
+        animate={true}
+        offset={30}
+        delay={0.2}
+        className="between flex-col! items-start! gap-2 md:flex-row! md:items-center w-full border-t-1 border-[var(--neutral-3)] mt-6 px-4 py-6 2xl:px-8"
+      >
         <SocialsList />
         <p className="text-lg!">©️Lumi. 2025</p>
         <p className="text-sm!">
-          Developed by
+          {messages["footer.dev.by"]}{" "}
           <Link
             href={"https://www.victorkevz.com"}
             target="_blank"
             rel="noopener"
-            className="text-[var(--primary-5)] ml-0.5 font-semibold"
+            className="text-[var(--primary-5)] font-semibold"
           >
             Victor Kevz
           </Link>
         </p>
-      </div>
+      </AnimationWrapper>
     </footer>
   );
 };

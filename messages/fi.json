@@ -212,5 +212,11 @@
         "footer.address": "Kauppurienkatu 10, 90100 Oulu, Suomi",
         "footer.contact": "+358 40 123 4567 | info@lumisalo.fi",
         "cta.services": "Katso palvelumme",
-        "footer.copyright": "© 2025 Lumi Salo. Kaikki oikeudet pidätetään."
+        "footer.copyright": "© 2025 Lumi Salo. Kaikki oikeudet pidätetään.",
+        "footer.cta.title": "Ota yhteyttä",
+        "footer.cta.subtitle": "Tänään",
+        "footer.contact.title": "Yhteystiedot",
+        "footer.quicklinks.title": "Pikalinkit",
+        "footer.dev.by": "Kehittäjä",
+        "pricing.tabs.ariaLabel": "Palvelukategoriat"
     }
