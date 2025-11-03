@@ -63,6 +63,7 @@ export const About = ({ messages }: SectionProps) => {
             alt={messages["about.fig.alt"]}
             height={500}
             width={450}
+            sizes="(max-width: 768px) 100vw, 450px"
             className="w-full h-full rounded-t-4xl sm:rounded-xl shadow-2xl"
           />
           <div className="card-overlay rounded-t-4xl sm:rounded-xl opacity-70"></div>

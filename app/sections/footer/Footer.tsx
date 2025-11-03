@@ -125,6 +125,7 @@ export const Footer = ({ messages }: SectionProps) => {
               <Link
                 href={link.href}
                 className="hover:text-[var(--primary-6)] hover:translate-y-1 hover:scale-105"
+                aria-label={link.label}
               >
                 {link.label}
               </Link>

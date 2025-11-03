@@ -21,6 +21,12 @@ export const Hero = ({ messages }: SectionProps) => {
       aria-label="hero section"
       className="center flex-col! w-full min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
     >
+      <PictureBg
+        desktopUrl="/images/hero-desktop.webp"
+        mobileUrl="/images/hero-mobile.webp"
+        alt={messages["hero.bg.alt"]}
+        priority={true}
+      />
       <AnimationWrapper
         offset={5}
         animate={shouldAnimate}
@@ -89,12 +95,6 @@ export const Hero = ({ messages }: SectionProps) => {
           <KeyboardArrowDown className="text-3xl! lg:text-6xl!" />
         </motion.span>
       </Link>
-      <PictureBg
-        desktopUrl="/images/hero-desktop.webp"
-        mobileUrl="/images/hero-mobile.webp"
-        alt={messages["hero.bg.alt"]}
-        priority={true}
-      />
       <div className="overlay backdrop-saturate-120 backdrop-brightness-90 -z-1"></div>
     </section>
   );

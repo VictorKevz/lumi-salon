@@ -49,6 +49,7 @@ export const Services = ({ messages }: SectionProps) => {
                 height={160}
                 width={400}
                 alt={service.description}
+                sizes="(max-width: 768px) 100vw, 400px"
                 className="w-full! object-cover object-center rounded-b-lg"
               />
               <div className="card-overlay rounded-b-lg"></div>

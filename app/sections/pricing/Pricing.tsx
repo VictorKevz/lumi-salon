@@ -45,31 +45,34 @@ export const Pricing = ({ messages }: SectionProps) => {
             {tabs.map((tab) => {
               const isActive = selectedTab === tab.id;
               return (
-                <AnimationWrapper
-                  key={tab.id}
-                  as={motion.li}
-                  offset={-10}
-                  animate={true}
-                  className="w-full"
-                >
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-controls={`tabpanel-${tab.id}`}
-                    id={`tab-${tab.id}`}
-                    onClick={() => setSelectedTab(tab.id)}
-                    className={`center flex-col! w-full border rounded-xl shadow-xl! px-2.5 py-3 font-bold gap-1 uppercase hover:bg-[var(--primary-6)]! hover:text-[var(--neutral-0)] hover:scale-105 hover:-translate-y-0.5 ${
-                      isActive
-                        ? "shadow-2xl text-[var(--neutral-0)] bg-[var(--primary-6)]"
-                        : "card-inset border-[var(--glass-border)] backdrop-blur-2xl"
-                    }`}
+                <li key={tab.id} className="w-full">
+                  <AnimationWrapper
+                    as={motion.span}
+                    offset={-10}
+                    animate={true}
+                    className="w-full"
                   >
-                    <ServiceIcon url={tab.icon} hide={true} />
-                    <span>{tab.label}</span>
-                    {isActive && <span className="sr-only">(current tab)</span>}
-                  </button>
-                </AnimationWrapper>
+                    <button
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls={`tabpanel-${tab.id}`}
+                      id={`tab-${tab.id}`}
+                      onClick={() => setSelectedTab(tab.id)}
+                      className={`center flex-col! w-full border rounded-xl shadow-xl! px-2.5 py-3 font-bold gap-1 uppercase hover:bg-[var(--primary-6)]! hover:text-[var(--neutral-0)] hover:scale-105 hover:-translate-y-0.5 ${
+                        isActive
+                          ? "shadow-2xl text-[var(--neutral-0)] bg-[var(--primary-6)]"
+                          : "card-inset border-[var(--glass-border)] backdrop-blur-2xl"
+                      }`}
+                    >
+                      <ServiceIcon url={tab.icon} hide={true} />
+                      <span>{tab.label}</span>
+                      {isActive && (
+                        <span className="sr-only">(current tab)</span>
+                      )}
+                    </button>
+                  </AnimationWrapper>
+                </li>
               );
             })}
           </ul>
@@ -99,6 +102,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                         width={40}
                         height={40}
                         alt={`${option.title} illustration`}
+                        sizes="(max-width: 768px) 100vw, 72px"
                         className="w-14 h-14 lg:w-18 lg:h-18 object-cover rounded-full shadow-2xl border-2 border-[var(--glass-border)]"
                       />
                       <h3 className="font-bold text-[var(--text-primary)] mt-1.5">
