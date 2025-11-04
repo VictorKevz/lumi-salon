@@ -19,7 +19,7 @@ export const Hero = ({ messages }: SectionProps) => {
     <section
       id="home"
       aria-label="hero section"
-      className="center flex-col! w-full min-h-[calc(100dvh-4.5rem)] lg:min-h-[calc(100dvh-7.2rem)] relative py-10 px-4 lg:px-8 z-5"
+      className="center flex-col! w-full min-h-dvh relative py-10 px-4 lg:px-8 z-5"
     >
       <PictureBg
         desktopUrl="/images/hero-desktop.webp"

@@ -135,7 +135,7 @@ export const Footer = ({ messages }: SectionProps) => {
       </div>
       <AnimationWrapper
         animate={true}
-        offset={30}
+        offset={-30}
         delay={0.2}
         className="between flex-col! items-start! gap-2 md:flex-row! md:items-center w-full border-t-1 border-[var(--neutral-3)] mt-6 px-4 py-6 2xl:px-8"
       >

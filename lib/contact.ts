@@ -1,15 +1,8 @@
 import { Messages } from "@/lib/header";
-import {
-  ContactCard,
-  ContactDetail,
-  ServiceCategory,
-} from "@/app/types/contact";
-import { Phone, Email, LocationOn, AccessTime } from "@mui/icons-material";
+import { ContactCard, ServiceCategory } from "@/app/types/contact";
+import { Phone, LocationOn, AccessTime } from "@mui/icons-material";
 import { getPricingData, getPricingTabs } from "@/lib/pricing";
 
-/**
- * Get contact information cards data
- */
 export function getContactCards(messages: Messages): ContactCard[] {
   return [
     {
@@ -65,9 +58,6 @@ export function getContactCards(messages: Messages): ContactCard[] {
   ];
 }
 
-/**
- * Get service categories for the service selector
- */
 export function getServiceCategories(messages: Messages): ServiceCategory[] {
   const tabs = getPricingTabs(messages);
   const pricingData = getPricingData(messages);

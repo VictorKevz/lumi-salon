@@ -39,32 +39,14 @@ export default function HomeClient({ messages }: { messages: Messages }) {
       const target = document.querySelector(href);
       if (!target) return;
       e.preventDefault();
-      const header = document.querySelector("header.sticky");
-      const offset = header ? (header as HTMLElement).offsetHeight : 0;
-      const rect = target.getBoundingClientRect();
-      const scrollTop = window.pageYOffset + rect.top - offset - 8; // 8px extra space
-      window.scrollTo({ top: scrollTop, behavior: "smooth" });
+      const isHome = href === "#" || href === "#home";
+      const navbarHeight = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = isHome
+        ? elementPosition + window.pageYOffset
+        : elementPosition + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
-    document.addEventListener("click", handleAnchorClick);
-    return () => {
-      document.removeEventListener("click", handleAnchorClick);
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleAnchorClick = (e: MouseEvent) => {
-      const anchor = (e.target as HTMLElement).closest("a[href^='#']");
-      if (anchor) {
-        const href = anchor.getAttribute("href");
-        if (href && href.startsWith("#")) {
-          const target = document.querySelector(href);
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: "smooth" });
-          }
-        }
-      }
-    };
     document.addEventListener("click", handleAnchorClick);
     return () => {
       document.removeEventListener("click", handleAnchorClick);
@@ -77,35 +59,28 @@ export default function HomeClient({ messages }: { messages: Messages }) {
       <main className="w-full overflow-x-hidden">
         <Hero messages={messages} />
 
-        <LazySection>
-          <Suspense fallback={<SectionLoading />}>
-            <Services messages={messages} />
-          </Suspense>
-        </LazySection>
-
-        <LazySection>
-          <Suspense fallback={<SectionLoading />}>
-            <Pricing messages={messages} />
-          </Suspense>
-        </LazySection>
-        <LazySection>
-          <LazySection>
-            <Suspense fallback={<SectionLoading />}>
-              <Contact messages={messages} />
-            </Suspense>
-          </LazySection>
-          <Suspense fallback={<SectionLoading />}>
-            <About messages={messages} />
-          </Suspense>
-        </LazySection>
-
-        <LazySection>
-          <Suspense fallback={<SectionLoading />}>
-            <Footer messages={messages} />
-          </Suspense>
-        </LazySection>
+        <LazySuspenseSection Component={Services} messages={messages} />
+        <LazySuspenseSection Component={Pricing} messages={messages} />
+        <LazySuspenseSection Component={Contact} messages={messages} />
+        <LazySuspenseSection Component={About} messages={messages} />
+        <LazySuspenseSection Component={Footer} messages={messages} />
       </main>
     </>
+  );
+}
+function LazySuspenseSection({
+  Component,
+  messages,
+}: {
+  Component: React.ComponentType<{ messages: Messages }>;
+  messages: Messages;
+}) {
+  return (
+    <LazySection>
+      <Suspense fallback={<SectionLoading />}>
+        <Component messages={messages} />
+      </Suspense>
+    </LazySection>
   );
 }
 
@@ -124,7 +99,6 @@ function LazySection({ children }: { children: React.ReactNode }) {
       { rootMargin: "150px" }
     );
 
-    // Save a reference to the current value of ref.current
     const currentRef = ref.current;
 
     if (currentRef) observer.observe(currentRef);

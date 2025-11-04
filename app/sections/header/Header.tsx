@@ -12,7 +12,7 @@ import { SlideInVariants } from "@/app/variants";
 
 export const Header = ({ messages }: SectionProps) => {
   return (
-    <header className="w-full sticky top-0 z-50">
+    <header className="w-full fixed top-0 z-50">
       <Banner messages={messages} />
       <Navbar messages={messages} />
     </header>
