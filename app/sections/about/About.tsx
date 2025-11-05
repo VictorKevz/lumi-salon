@@ -20,7 +20,7 @@ export const About = ({ messages }: SectionProps) => {
         as={motion.header}
         className="max-w-4xl w-full center flex-col! text-center pt-20 "
         animate={true}
-        offset={-10}
+        offset={-30}
       >
         <h2>{messages["about.title"]}</h2>
         <p>{messages["about.intro"]}</p>
@@ -50,22 +50,19 @@ export const About = ({ messages }: SectionProps) => {
                       0{i + 1}
                     </p>
                   </div>
-                  <h3 className="text-lg font-bold mt-10">{value.title}</h3>
-                  <p className="text-base!">{value.description}</p>
+                  <AnimationWrapper animate={true} offset={30} delay={0.05 * i}>
+                    <h3 className="text-lg font-bold mt-10">{value.title}</h3>
+                    <p className="text-base!">{value.description}</p>
+                  </AnimationWrapper>
                 </AnimationWrapper>
               </li>
             );
           })}
         </ul>
       </div>
-      <AnimationWrapper
-        as={motion.figure}
-        animate={true}
-        offset={-20}
-        className="relative w-full mt-12"
-      >
+      <figure className="relative w-full mt-12">
         <Image
-          src={"/images/salon.png"}
+          src={"/images/salon.webp"}
           alt={messages["about.fig.alt"]}
           height={350}
           width={450}
@@ -73,7 +70,7 @@ export const About = ({ messages }: SectionProps) => {
         />
         <div className="card-overlay opacity-75 backdrop-saturate-150"></div>
         <figcaption className="sr-only">{messages["about.fig.alt"]}</figcaption>
-      </AnimationWrapper>
+      </figure>
     </section>
   );
 };
