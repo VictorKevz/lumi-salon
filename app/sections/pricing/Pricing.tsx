@@ -1,5 +1,4 @@
 import { AnimationWrapper } from "@/app/components/AnimationWrapper";
-import { PictureBg } from "@/app/components/PictureBg";
 import { ServiceIcon } from "@/app/components/ServiceIcon";
 import { PricingTabId } from "@/app/types/pricing";
 import { SectionProps } from "@/lib/header";
@@ -16,17 +15,17 @@ export const Pricing = ({ messages }: SectionProps) => {
   return (
     <section
       id="pricing"
-      className="center flex-col! w-full relative pt-10 sm:py-20 sm:px-4 lg:px-8 z-5"
+      className="center flex-col! w-full relative pt-10 bg-[var(--primary-1)] sm:py-20 sm:px-4 lg:px-8 z-5"
       aria-labelledby="pricing-heading"
     >
       <AnimationWrapper
         as={motion.header}
         animate={true}
         offset={-30}
-        className="center flex-col! max-w-3xl w-full text-center card-inset center px-4 py-8 backdrop-blur-[1rem] bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-4xl sm:rounded-lg"
+        className="center flex-col! max-w-3xl w-full text-center center "
       >
         <h2 id="pricing-heading">{messages["pricing.heading"]}</h2>
-        <p className="text-[var(--text-primary)]! font-semibold">
+        <p className="text-[var(--text-primary)]!">
           {messages["pricing.intro"]}
         </p>
       </AnimationWrapper>
@@ -34,7 +33,7 @@ export const Pricing = ({ messages }: SectionProps) => {
       <AnimationWrapper
         offset={-10}
         animate={true}
-        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-6 lg:p-6 backdrop-blur-[0.8rem] lg:shadow-xl! bg-[var(--glass-bg)] border border-[var(--glass-border)] rounded-t-4xl sm:rounded-2xl"
+        className="center flex-col! max-w-screen-xl w-full mt-10 px-4 py-6 lg:p-6 backdrop-blur-[0.8rem] lg:shadow-xl! bg-[var(--primary-3)] rounded-t-4xl sm:rounded-xl"
         aria-live="polite"
       >
         <nav className="w-full" aria-label={messages["pricing.tabs.ariaLabel"]}>
@@ -59,10 +58,10 @@ export const Pricing = ({ messages }: SectionProps) => {
                       aria-controls={`tabpanel-${tab.id}`}
                       id={`tab-${tab.id}`}
                       onClick={() => setSelectedTab(tab.id)}
-                      className={`center flex-col! w-full border rounded-xl shadow-xl! px-2.5 py-3 font-bold gap-1 uppercase hover:bg-[var(--primary-6)]! hover:text-[var(--neutral-0)] hover:scale-105 hover:-translate-y-0.5 ${
+                      className={`center flex-col! w-full rounded-xl shadow-xl! px-2.5 py-3 font-bold gap-1 uppercase hover:bg-[var(--primary-6)]! hover:text-[var(--neutral-0)] hover:scale-105 hover:-translate-y-0.5 ${
                         isActive
                           ? "shadow-2xl text-[var(--neutral-0)] bg-[var(--primary-6)]"
-                          : "card-inset border-[var(--glass-border)] backdrop-blur-2xl"
+                          : "bg-[var(--primary-1)]"
                       }`}
                     >
                       <ServiceIcon url={tab.icon} hide={true} />
@@ -94,7 +93,7 @@ export const Pricing = ({ messages }: SectionProps) => {
                     as={motion.article}
                     offset={-10}
                     animate={true}
-                    className="w-full relative between backdrop-blur-[0.1rem] shadow-xl! border border-[var(--glass-border)] px-3.5 py-5 rounded-xl"
+                    className="w-full relative between shadow-xl! border border-[var(--glass-border)] bg-[var(--primary-2)] px-3.5 py-5 rounded-xl"
                   >
                     <div>
                       <Image
@@ -125,8 +124,6 @@ export const Pricing = ({ messages }: SectionProps) => {
           </div>
         ))}
       </AnimationWrapper>
-
-      <div className="overlay -z-1"></div>
     </section>
   );
 };

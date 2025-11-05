@@ -1,4 +1,4 @@
-import { Target, Transition, Variants } from "framer-motion";
+import { Variants } from "framer-motion";
 
 export const SlideInVariants = (
   xOffset: string = "100%",
