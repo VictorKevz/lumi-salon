@@ -15,7 +15,6 @@ export const Lightbox: React.FC<LightboxProps> = ({
   const lightboxRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Handle keyboard navigation
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (!isOpen) return;
@@ -41,16 +40,12 @@ export const Lightbox: React.FC<LightboxProps> = ({
     [isOpen, currentIndex, images.length, onClose, onNavigate]
   );
 
-  // Focus management and keyboard listener
   useEffect(() => {
     if (isOpen) {
-      // Focus close button when lightbox opens
       closeButtonRef.current?.focus();
 
-      // Prevent body scroll
       document.body.style.overflow = "hidden";
 
-      // Add keyboard listener
       document.addEventListener("keydown", handleKeyDown);
 
       return () => {

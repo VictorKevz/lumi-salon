@@ -4,10 +4,7 @@ import { GalleryGridProps } from "../types/gallery";
 import { GalleryItem } from "./GalleryItem";
 import { Lightbox } from "./Lightbox";
 
-export const GalleryGrid: React.FC<GalleryGridProps> = ({
-  images,
-  messages,
-}) => {
+export const GalleryGrid = ({ images, messages }: GalleryGridProps) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -26,7 +23,6 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
 
   return (
     <>
-      {/* Gallery Grid */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
         {images.map((image, index) => (
           <GalleryItem
@@ -38,7 +34,6 @@ export const GalleryGrid: React.FC<GalleryGridProps> = ({
         ))}
       </div>
 
-      {/* Lightbox */}
       <Lightbox
         images={images}
         currentIndex={currentImageIndex}

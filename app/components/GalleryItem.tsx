@@ -12,7 +12,7 @@ export const GalleryItem: React.FC<GalleryItemProps> = ({
   return (
     <motion.button
       onClick={() => onClick(index)}
-      className="group relative aspect-square w-full overflow-hidden rounded-lg bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+      className="group relative aspect-square w-full overflow-hidden rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-5)] focus:ring-offset-2"
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true, margin: "-50px" }}

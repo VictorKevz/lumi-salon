@@ -7,30 +7,26 @@ import { AnimationWrapper } from "@/app/components/AnimationWrapper";
 import { getGalleryImages, getGalleryMessages } from "@/lib/gallery";
 
 export const Gallery = ({ messages }: SectionProps) => {
-  // Build messages object from translations
   const galleryMessages = getGalleryMessages(messages);
 
-  // Get gallery images with translated alt texts
   const images = getGalleryImages(galleryMessages.images);
 
   return (
     <section
       id="gallery"
-      className="relative w-full overflow-hidden bg-white py-20"
+      className="center flex-col! relative w-full overflow-hidden bg-[neutral-0] py-20"
     >
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
+      <div className="w-full ">
         <AnimationWrapper
           as={motion.header}
-          className="mb-12 text-center max-w-4xl w-full"
+          className="center flex-col! text-center w-full mb-12"
           animate={true}
           offset={30}
         >
           <h2>{galleryMessages.title}</h2>
-          <p>{galleryMessages.subtitle}</p>
+          <p className="max-w-3xl">{galleryMessages.subtitle}</p>
         </AnimationWrapper>
 
-        {/* Gallery Grid */}
         <GalleryGrid images={images} messages={galleryMessages} />
       </div>
     </section>
