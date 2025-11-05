@@ -65,13 +65,13 @@ export const About = ({ messages }: SectionProps) => {
         className="relative w-full mt-12"
       >
         <Image
-          src={"/images/about-salon.png"}
+          src={"/images/salon.png"}
           alt={messages["about.fig.alt"]}
-          height={400}
+          height={350}
           width={450}
-          className="w-full! h-[15rem] 2xl:h-auto object-cover"
+          className="w-full! h-[15rem] 2xl:h-[20rem] object-cover"
         />
-        <div className="card-overlay opacity-70"></div>
+        <div className="card-overlay opacity-75 backdrop-saturate-150"></div>
         <figcaption className="sr-only">{messages["about.fig.alt"]}</figcaption>
       </AnimationWrapper>
     </section>
