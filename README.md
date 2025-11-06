@@ -1,10 +1,6 @@
-<div align="center">
-
-# Lumi Salon — Next.js Website
-
+# Lumi Salon - Beauty Salon
 Modern, fast, and accessible salon website built with Next.js (App Router), React, TypeScript, and Tailwind CSS. Designed to feel great for people first, and perform brilliantly for search engines and devices.
-
-</div>
+![Lumi Salon Hero Section](public/screenshots/laptop-hero.webp)
 
 ## Table of Contents
 
