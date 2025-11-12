@@ -48,3 +48,26 @@ export const FadeInVariants = (
     },
   };
 };
+
+export const SliderVariants: Variants = {
+  enter: (direction: number) => ({
+    x: direction > 0 ? 50 : -50,
+    opacity: 0,
+  }),
+  center: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  },
+  exit: (direction: number) => ({
+    x: direction > 0 ? -50 : 50,
+    opacity: 0,
+    transition: {
+      duration: 0.4,
+      ease: "easeInOut",
+    },
+  }),
+};
