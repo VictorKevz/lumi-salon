@@ -12,7 +12,7 @@ export const Footer = ({ messages }: SectionProps) => {
   return (
     <footer className="center flex-col! w-full bg-[var(--netral-0)] z-10">
       <header className="center w-full min-h-40 bg-[var(--neutral-6)] px-4 py-6 2xl:px-8">
-        <div className="between max-w-screen-xl w-full flex-col! items-start! lg:flex-row! lg:items-center! gap-6">
+        <div className="between max-w-screen-xl w-full flex-col! items-start! md:flex-row! md:items-center! gap-6">
           <AnimationWrapper
             as={motion.h2}
             animate={true}

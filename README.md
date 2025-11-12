@@ -148,13 +148,7 @@ Highlights:
 Copy lives in JSON files under `messages/en.json` and `messages/fi.json`. Sections receive a `messages` object and read keys like `services.title`, `gallery.images.1` (alt text), etc. The Language Switcher toggles locale.
 
 ## Screenshots
-
-Place screenshots in `public/screenshots/` and reference them here. Example:
-
-![Home – Desktop](public/screenshots/home-desktop.png)
-![Services – Mobile](public/screenshots/services-mobile.png)
-
-Tip: keep filenames descriptive (e.g., `gallery-lightbox-desktop.png`).
+![alt text](public/screenshots/mobile-hero.webp)![alt text](public/screenshots/tablet-hero.webp)
 
 ## Getting Started
 

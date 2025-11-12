@@ -22,6 +22,25 @@ export const metadata: Metadata = {
   formatDetection: { email: false, address: false, telephone: false },
   icons: { icon: "/favicon.ico" },
   robots: { index: true, follow: true },
+
+  openGraph: {
+    type: "website",
+    locale: "fi_FI",
+    alternateLocale: ["en_US"],
+    url: "https://lumi-salon.vercel.app/fi",
+    siteName: "Lumi Salon",
+    title: "Lumi Salon - Professional Hair Salon in Oulu",
+    description:
+      "Professional hair styling and beauty services in Oulu, Finland. Expert cuts, coloring, treatments, and more.",
+    images: [
+      {
+        url: "/images/hero-desktop.webp",
+        width: 1200,
+        height: 630,
+        alt: "Lumi Salon - Modern hair salon in Oulu",
+      },
+    ],
+  },
 };
 
 interface RootLayoutProps {
