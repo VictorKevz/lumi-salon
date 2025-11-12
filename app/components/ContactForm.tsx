@@ -8,7 +8,7 @@ import {
   FormErrors,
   FormField as FormFieldType,
 } from "@/app/types/contact";
-import { Backspace, Send } from "@mui/icons-material";
+import { Backspace, Message, Send } from "@mui/icons-material";
 
 interface ContactFormProps {
   messages: Messages;
@@ -264,7 +264,7 @@ export const ContactForm = ({ messages }: ContactFormProps) => {
             disabled={isSubmitting}
             className="center gap-1 w-full bg-[var(--neutral-6)] border-2 border-transparent hover:bg-transparent hover:border-[var(--neutral-6)] hover:text-[var(--neutral-6)] disabled:opacity-50 disabled:cursor-not-allowed text-lg text-[var(--text-on-primary)] font-semibold h-14 px-6 rounded-lg shadow-xl"
           >
-            <Send className="text-xl" />
+            <Message className="text-xl" />
             {isSubmitting
               ? messages["contact.form.submitting"]
               : messages["contact.form.submit"]}

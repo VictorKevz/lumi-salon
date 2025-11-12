@@ -60,17 +60,12 @@ export const About = ({ messages }: SectionProps) => {
           })}
         </ul>
       </div>
-      <figure className="relative w-full mt-12">
-        <Image
-          src={"/images/salon.webp"}
-          alt={messages["about.fig.alt"]}
-          height={350}
-          width={450}
-          className="w-full! h-[15rem] 2xl:h-[20rem] object-cover"
-        />
-        <div className="card-overlay opacity-75 backdrop-saturate-150"></div>
-        <figcaption className="sr-only">{messages["about.fig.alt"]}</figcaption>
-      </figure>
+      <div
+        className=" relative w-full mt-12 min-h-[18rem] 2xl:min-h-[25rem] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("/images/salon.webp")' }}
+      >
+        <div className="overlay opacity-70"></div>
+      </div>
     </section>
   );
 };

@@ -24,7 +24,7 @@ export const Banner = ({ messages }: SectionProps) => {
 
   return (
     <div
-      className="between hidden! lg:flex! w-full h-[2.7rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4 lg:px-8"
+      className="between hidden! lg:flex! w-full h-[2.7rem] bg-[var(--neutral-6)] text-[var(--neutral-0)] px-4 2xl:px-8"
       aria-label="Salon contact information and social media banner"
       role="banner"
     >
@@ -82,7 +82,7 @@ export const Navbar = ({ messages }: SectionProps) => {
 
   return (
     <nav
-      className="between relative w-full h-[4.5rem] bg-[var(--primary-2)] px-4 lg:px-8 z-50 shadow-2xl shadow-black/20"
+      className="between relative w-full h-[4.5rem] bg-[var(--primary-2)] px-4 2xl:px-8 z-50 shadow-2xl shadow-black/20"
       aria-label="Main navigation"
     >
       <div className="center gap-1">
