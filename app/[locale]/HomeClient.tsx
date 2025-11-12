@@ -24,6 +24,11 @@ const Gallery = lazy(() =>
     default: mod.Gallery,
   }))
 );
+const Testimonial = lazy(() =>
+  import("../sections/testimonials/Testimonial").then((mod) => ({
+    default: mod.Testimonial,
+  }))
+);
 
 const SectionLoading = () => (
   <div className="min-h-[30vh] w-full animate-pulse bg-neutral-100 rounded-md" />
@@ -67,6 +72,7 @@ export default function HomeClient({ messages }: { messages: Messages }) {
         <LazySuspenseSection Component={Services} messages={messages} />
         <LazySuspenseSection Component={Gallery} messages={messages} />
         <LazySuspenseSection Component={Pricing} messages={messages} />
+        <LazySuspenseSection Component={Testimonial} messages={messages} />
         <LazySuspenseSection Component={About} messages={messages} />
         <LazySuspenseSection Component={Contact} messages={messages} />
         <LazySuspenseSection Component={Footer} messages={messages} />
